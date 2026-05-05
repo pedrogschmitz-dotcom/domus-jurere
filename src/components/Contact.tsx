@@ -29,7 +29,7 @@ const Contact = () => {
     
     const { name, email, phone, message } = formData;
     const whatsappMessage = `Olá! Meu nome é ${name}.%0A%0AE-mail: ${email}%0ATelefone: ${phone}%0A%0AMensagem: ${message}`;
-    const whatsappUrl = `https://wa.me/5548988064337?text=${encodeURIComponent(whatsappMessage.replace(/%0A/g, '\n'))}`;
+    const whatsappUrl = `https://wa.me/5548984680088?text=${encodeURIComponent(whatsappMessage.replace(/%0A/g, '\n'))}`;
     trackEvent("whatsapp_click", { location: "contact_form" });
     
     window.open(whatsappUrl, '_blank');
@@ -55,7 +55,7 @@ const Contact = () => {
       title: "WhatsApp",
       content: "+55 48 8806-4337",
       subtitle: "Clique para iniciar conversa",
-      link: "https://wa.me/5548988064337",
+      link: "https://wa.me/5548984680088",
     },
     {
       icon: Mail,
@@ -143,7 +143,7 @@ const Contact = () => {
             {/* Quick Actions */}
             <div className="flex flex-col sm:flex-row gap-4">
               <a
-                href="https://wa.me/5548988064337"
+                href="https://wa.me/5548984680088"
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => trackEvent("whatsapp_click", { location: "contact_quick_action" })}

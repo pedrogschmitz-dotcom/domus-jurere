@@ -68,7 +68,7 @@ const BlogPostPage = () => {
           {/* CTA */}
           <div className="mt-16 p-8 rounded-2xl bg-card border border-border text-center">
             <h2 className="font-serif text-2xl text-foreground mb-4">Agendar avaliação</h2>
-            <a href="https://wa.me/5548988064337" target="_blank" rel="noopener noreferrer">
+            <a href="https://wa.me/5548984680088" target="_blank" rel="noopener noreferrer">
               <Button className="btn-primary flex items-center gap-2 mx-auto">
                 <Phone size={18} />
                 Fale conosco pelo WhatsApp

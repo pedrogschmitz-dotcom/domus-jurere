@@ -1,384 +1,239 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Red+Hat+Display:wght@300;400;500;600;700&display=swap');
-
-@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond&display=swap");
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  :root {
-    /* Brand Colors from Curae Santé Identity */
-    /* #f9f6f2 - Light cream background */
-    /* #eae4da - Beige accent */
-    /* #bc9fa5 - Mauve/rose accent */
-    /* #bca78e - Warm taupe */
-    /* #5d4424 - Dark brown */
-    /* #fffeec - Off-white */
-
-    --background: 36 35% 96%; /* #f9f6f2 */
-    --foreground: 30 45% 24%; /* #5d4424 */
-
-    --card: 40 40% 97%; /* Slightly lighter than bg */
-    --card-foreground: 30 45% 24%;
-
-    --popover: 40 40% 97%;
-    --popover-foreground: 30 45% 24%;
-
-    --primary: 33 25.5556% 64.7059%; /* Dark brown #5d4424 */
-    --primary-foreground: 55 100% 96%; /* #fffeec */
-
-    --secondary: 35 28% 65%; /* #bca78e */
-    --secondary-foreground: 30 45% 24%;
-
-    --muted: 36 24% 89%; /* #eae4da */
-    --muted-foreground: 30 25% 40%;
-
-    --accent: 346 22% 68%; /* #bc9fa5 */
-    --accent-foreground: 30 45% 24%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 36 24% 85%;
-    --input: 36 24% 85%;
-    --ring: 30 45% 24%;
-
-    --radius: 1rem;
-
-    /* Custom brand colors */
-    --cream: 36 35% 96%; /* #f9f6f2 */
-    --cream-light: 55 100% 96%; /* #fffeec */
-    --gold: 35 28% 65%; /* #bca78e - warm taupe as gold */
-    --gold-light: 35 28% 75%;
-    --gold-dark: 30 45% 24%; /* #5d4424 */
-    --brown-light: 35 28% 65%; /* #bca78e */
-    --brown: 30 45% 24%; /* #5d4424 */
-    --beige: 36 24% 89%; /* #eae4da */
-    --beige-dark: 36 24% 82%;
-    --rose: 346 22% 68%; /* #bc9fa5 */
-
-    /* Gradients */
-    --gradient-gold: linear-gradient(135deg, hsl(43 56% 52%) 0%, hsl(35 35% 75%) 100%);
-    --gradient-cream: linear-gradient(180deg, hsl(var(--background)) 0%, hsl(var(--card)) 100%);
-    --gradient-hero: linear-gradient(135deg, hsl(var(--background)) 0%, hsl(var(--muted)) 50%, hsl(var(--card)) 100%);
-
-    /* Shadows */
-    --shadow-soft: 0 4px 20px -4px hsl(30 15% 20% / 0.08);
-    --shadow-card: 0 8px 32px -8px hsl(30 15% 20% / 0.1);
-    --shadow-gold: 0 8px 24px -8px hsl(43 56% 52% / 0.3);
-
-    --sidebar-background: 40 33% 96%;
-    --sidebar-foreground: 30 15% 20%;
-    --sidebar-primary: 43 56% 52%;
-    --sidebar-primary-foreground: 40 33% 98%;
-    --sidebar-accent: 35 30% 90%;
-    --sidebar-accent-foreground: 30 15% 20%;
-    --sidebar-border: 35 25% 85%;
-    --sidebar-ring: 43 56% 52%;
-    --font-serif: "Cormorant Garamond", ui-serif, Georgia, Cambria, Times New Roman, Times, serif;
-  }
-
-  .dark {
-    --background: 24 30% 12%; /* dark coffee brown */
-    --foreground: 36 35% 92%; /* light cream for legibility */
-
-    --card: 24 25% 16%;
-    --card-foreground: 36 35% 92%;
-
-    --popover: 24 25% 16%;
-    --popover-foreground: 36 35% 92%;
-
-    --primary: 35 28% 65%; /* warm taupe gold */
-    --primary-foreground: 24 30% 12%;
-
-    --secondary: 24 20% 22%;
-    --secondary-foreground: 36 35% 90%;
-
-    --muted: 24 20% 20%;
-    --muted-foreground: 36 20% 65%;
-
-    --accent: 346 22% 68%;
-    --accent-foreground: 36 35% 92%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 36 35% 92%;
-
-    --border: 24 20% 25%;
-    --input: 24 20% 25%;
-    --ring: 35 28% 65%;
-
-    --cream: 24 30% 12%;
-    --cream-light: 24 25% 16%;
-    --gold: 35 28% 65%;
-    --gold-light: 35 28% 75%;
-    --gold-dark: 36 35% 88%;
-    --brown-light: 35 28% 65%;
-    --brown: 36 35% 88%;
-    --beige: 24 20% 20%;
-    --beige-dark: 24 20% 25%;
-    --rose: 346 22% 68%;
-
-    --sidebar-background: 24 30% 12%;
-    --sidebar-foreground: 36 35% 92%;
-    --sidebar-primary: 35 28% 65%;
-    --sidebar-primary-foreground: 24 30% 12%;
-    --sidebar-accent: 24 20% 20%;
-    --sidebar-accent-foreground: 36 35% 92%;
-    --sidebar-border: 24 20% 25%;
-    --sidebar-ring: 35 28% 65%;
-    --font-serif: "Cormorant Garamond", ui-serif, Georgia, Cambria, Times New Roman, Times, serif;
-  }
+:root {
+  --ink: #0a0a0a;
+  --ink-soft: #141414;
+  --ink-mid: #1e1e1e;
+  --gold: #d4bc80;
+  --gold-dk: #c8b48a;
+  --gold-lt: #e8d9a8;
+  --white: #ffffff;
+  --cream: #f6f1e8;
+  --cream-dk: #e8e0d0;
+  --gray: #6b6560;
+  --green-wa: #25d366;
+  --font-display: "Playfair Display", Georgia, serif;
+  --font-body: "Josefin Sans", system-ui, sans-serif;
 }
 
-@layer base {
-  * {
-    @apply border-border;
-  }
-
-  body {
-    @apply bg-background text-foreground font-sans antialiased;
-    font-family: 'Red Hat Display', sans-serif;
-    position: relative;
-    background-image:
-      radial-gradient(1200px circle at 8% -10%, hsl(var(--accent) / 0.12), transparent 42%),
-      radial-gradient(900px circle at 92% 8%, hsl(var(--secondary) / 0.16), transparent 40%),
-      radial-gradient(1000px circle at 50% 110%, hsl(var(--muted) / 0.45), transparent 46%);
-    background-attachment: fixed;
-  }
-
-  body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    z-index: 0;
-    opacity: 0.08;
-    background-image: radial-gradient(circle at 1px 1px, hsl(var(--foreground) / 0.45) 1px, transparent 0);
-    background-size: 3px 3px;
-    animation: grainShift 16s steps(8) infinite;
-  }
-
-  body::after {
-    content: "";
-    position: fixed;
-    inset: -20%;
-    pointer-events: none;
-    z-index: 0;
-    background:
-      radial-gradient(40% 55% at 20% 20%, hsl(var(--gold) / 0.09), transparent 70%),
-      radial-gradient(35% 50% at 80% 25%, hsl(var(--accent) / 0.08), transparent 72%),
-      radial-gradient(42% 60% at 50% 85%, hsl(var(--secondary) / 0.08), transparent 72%);
-    filter: blur(42px);
-    animation: auroraFloat 18s ease-in-out infinite;
-  }
-
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'Cormorant', serif;
-  }
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
-@layer utilities {
-  .font-display {
-    font-family: 'Cormorant', serif;
-  }
-
-  .font-body {
-    font-family: 'Red Hat Display', sans-serif;
-  }
-
-  .gradient-gold {
-    background: var(--gradient-gold);
-  }
-
-  .gradient-cream {
-    background: var(--gradient-cream);
-  }
-
-  .gradient-hero {
-    background: var(--gradient-hero);
-  }
-
-  .shadow-soft {
-    box-shadow: var(--shadow-soft);
-  }
-
-  .shadow-card {
-    box-shadow: var(--shadow-card);
-  }
-
-  .shadow-gold {
-    box-shadow: var(--shadow-gold);
-  }
-
-  .text-gradient-gold {
-    background: var(--gradient-gold);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .photo-grade {
-    filter: saturate(0.92) contrast(1.05) brightness(1.02) sepia(0.05);
-  }
+body {
+  margin: 0;
+  overflow-x: hidden;
+  font-family: var(--font-body);
+  font-weight: 500;
+  background-color: var(--ink);
+  color: var(--cream);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
-@layer components {
-  .animate-fade-up {
-    animation: fadeUp 0.6s ease-out forwards;
-  }
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9998;
+  opacity: 0.028;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.90' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 180px 180px;
+}
 
-  .animate-fade-in {
-    animation: fadeIn 0.5s ease-out forwards;
-  }
+* {
+  box-sizing: border-box;
+  cursor: none !important;
+}
 
-  .animate-scale-in {
-    animation: scaleIn 0.4s ease-out forwards;
-  }
+.font-display {
+  font-family: var(--font-display);
+}
 
-  .animate-slide-up {
-    animation: slideUp 0.5s ease-out forwards;
-  }
+.gold-italic {
+  font-family: var(--font-display);
+  font-style: italic;
+  color: var(--gold);
+}
 
-  @keyframes fadeUp {
-    from {
-      opacity: 0;
-      transform: translateY(30px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
+.label-track {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold-dk);
+}
 
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
+.rule-gold {
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(90deg, var(--gold), transparent);
+  border: none;
+  margin: 20px 0;
+}
 
-  @keyframes scaleIn {
-    from {
-      opacity: 0;
-      transform: scale(0.95);
-    }
-    to {
-      opacity: 1;
-      transform: scale(1);
-    }
-  }
+.divider-full {
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(212, 188, 128, 0.2) 30%, rgba(212, 188, 128, 0.2) 70%, transparent 100%);
+  border: none;
+}
 
-  @keyframes slideUp {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
+.glass-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 0.5px solid rgba(212, 188, 128, 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 2px;
+  transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+}
 
-  @keyframes grainShift {
-    0% { transform: translate(0, 0); }
-    25% { transform: translate(-1%, 1%); }
-    50% { transform: translate(1%, -1%); }
-    75% { transform: translate(1%, 1%); }
-    100% { transform: translate(0, 0); }
-  }
+.glass-card:hover {
+  background: rgba(212, 188, 128, 0.06);
+  border-color: rgba(212, 188, 128, 0.28);
+  transform: translateY(-3px);
+}
 
-  @keyframes auroraFloat {
-    0%, 100% { transform: translate3d(0, 0, 0) rotate(0deg); }
-    50% { transform: translate3d(2%, -2%, 0) rotate(2deg); }
-  }
+.btn-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 32px;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  border-radius: 2px;
+}
 
-  @keyframes heroSheen {
-    0% { transform: translateX(-120%) skewX(-18deg); opacity: 0; }
-    30% { opacity: 0.28; }
-    70% { opacity: 0.18; }
-    100% { transform: translateX(120%) skewX(-18deg); opacity: 0; }
-  }
+.btn-cta:hover {
+  background: var(--gold);
+  color: var(--ink);
+}
 
-  @keyframes ctaShimmer {
-    0% { transform: translateX(-130%); }
-    100% { transform: translateX(130%); }
-  }
+.btn-cta-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 36px;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  background: transparent;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.35s ease;
+  text-decoration: none;
+  border-radius: 2px;
+}
 
-  .hover-lift {
-    @apply transition-all duration-300 ease-out;
-  }
+.btn-cta-primary:hover {
+  background: var(--gold);
+  color: var(--ink);
+}
 
-  .hover-lift:hover {
-    @apply -translate-y-1;
-    box-shadow: var(--shadow-card);
-  }
+.form-input {
+  width: 100%;
+  border-radius: 2px;
+  border: 1px solid rgba(212, 188, 128, 0.3);
+  background: rgba(255, 255, 255, 0.04);
+  padding: 12px 14px;
+  color: var(--cream);
+  font-size: 14px;
+  font-weight: 500;
+}
 
-  .btn-primary {
-    @apply bg-primary text-primary-foreground px-6 py-3 rounded-full font-medium transition-all duration-300 hover:shadow-gold hover:-translate-y-0.5;
-  }
+.form-input::placeholder {
+  color: rgba(246, 241, 232, 0.5);
+}
 
-  .btn-outline {
-    @apply border-2 border-primary text-primary px-6 py-3 rounded-full font-medium transition-all duration-300 hover:bg-primary hover:text-primary-foreground;
-  }
+.form-input:focus {
+  outline: none;
+  border-color: rgba(212, 188, 128, 0.6);
+}
 
-  .card-elegant {
-    @apply bg-card rounded-2xl p-6 shadow-soft transition-all duration-300 hover:shadow-card;
-  }
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+}
 
-  .section-reveal {
+.reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 {
+  transition-delay: 0.1s;
+}
+
+.reveal-delay-2 {
+  transition-delay: 0.22s;
+}
+
+.reveal-delay-3 {
+  transition-delay: 0.34s;
+}
+
+.reveal-delay-4 {
+  transition-delay: 0.46s;
+}
+
+@keyframes fadeInUp {
+  from {
     opacity: 0;
     transform: translateY(28px);
-    transition: opacity 700ms ease, transform 700ms ease;
   }
 
-  .hero-sheen::after {
-    content: "";
-    position: absolute;
-    inset: -20%;
-    background: linear-gradient(110deg, transparent 36%, hsl(var(--cream-light) / 0.45) 50%, transparent 64%);
-    animation: heroSheen 7s ease-in-out infinite;
-    pointer-events: none;
-  }
-
-  .cta-shimmer {
-    position: relative;
-    isolation: isolate;
-    overflow: hidden;
-  }
-
-  .cta-shimmer::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 35%;
-    background: linear-gradient(120deg, transparent, hsl(var(--cream-light) / 0.38), transparent);
-    animation: ctaShimmer 3.4s ease-in-out infinite;
-    pointer-events: none;
-  }
-
-  .section-reveal.is-visible {
+  to {
     opacity: 1;
     transform: translateY(0);
   }
+}
 
-  .section-padding {
-    @apply py-16 md:py-24 px-4 md:px-8;
+@keyframes fadeIn {
+  from {
+    opacity: 0;
   }
 
-  .container-content {
-    @apply max-w-7xl mx-auto;
+  to {
+    opacity: 1;
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .section-reveal,
-  .section-reveal.is-visible {
-    opacity: 1;
-    transform: none;
-    transition: none;
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease both;
+}
+
+.animate-fade-in {
+  animation: fadeIn 1.2s ease both;
+}
+
+.delay-200 {
+  animation-delay: 0.2s;
+}
+
+.delay-500 {
+  animation-delay: 0.5s;
+}
+
+@media (max-width: 768px) {
+  * {
+    cursor: auto !important;
   }
 }

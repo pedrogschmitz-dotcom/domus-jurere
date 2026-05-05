@@ -79,7 +79,7 @@ const FaqPage = () => {
               Se você se identificou com as dúvidas acima, agende sua consulta para investigação clínica individualizada.
             </p>
             <a
-              href="https://wa.me/5548988064337"
+              href="https://wa.me/5548984680088"
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => trackEvent("whatsapp_click", { location: "faq_page" })}

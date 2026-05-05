@@ -7,7 +7,7 @@ import { ArrowRight, Check, Phone } from "lucide-react";
 import { trackEvent } from "@/lib/analytics";
 
 const WA_LINK =
-  "https://wa.me/5548988064337?text=Ol%C3%A1%2C%20vim%20pela%20p%C3%A1gina%20de%20metabolismo%20feminino%20e%20gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o.";
+  "https://wa.me/5548984680088?text=Ol%C3%A1%2C%20vim%20pela%20p%C3%A1gina%20de%20metabolismo%20feminino%20e%20gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o.";
 
 const symptoms = [
   "Peso que não sai mesmo com dieta e exercício",

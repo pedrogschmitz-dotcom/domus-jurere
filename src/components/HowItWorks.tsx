@@ -1,30 +1,12 @@
 import { Clock, Ear, ClipboardList, Compass } from "lucide-react";
 import ConsultationPhotoRoulette from "@/components/ConsultationPhotoRoulette";
+import { useLanguage } from "@/contexts/LanguageContext";
 
-const steps = [
-  {
-    icon: Clock,
-    title: "Tempo de consulta",
-    description: "Consulta longa, sem pressa. Espaço real para escutar a sua história.",
-  },
-  {
-    icon: Ear,
-    title: "Escuta clínica",
-    description: "Anamnese cuidadosa para entender o contexto, não apenas o sintoma.",
-  },
-  {
-    icon: ClipboardList,
-    title: "Investigação",
-    description: "Exames e raciocínio clínico para chegar à raiz do que está acontecendo.",
-  },
-  {
-    icon: Compass,
-    title: "Plano individualizado",
-    description: "Estratégia construída com você, com explicação clara de cada passo.",
-  },
-];
+const ICONS = [Clock, Ear, ClipboardList, Compass];
 
 const HowItWorks = () => {
+  const { t } = useLanguage();
+
   return (
     <section className="section-padding bg-background">
       <div className="container-content px-4 md:px-8">
@@ -33,37 +15,39 @@ const HowItWorks = () => {
           <div className="space-y-8">
             <div className="space-y-4">
               <span className="inline-block px-4 py-2 bg-gold/10 rounded-full text-sm font-medium text-gold-dark">
-                Como funciona
+                {t.howItWorks.label}
               </span>
               <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-semibold text-foreground">
-                Um atendimento <span className="text-gold italic">diferente do padrão</span>
+                {t.howItWorks.h2_1} <span className="text-gold italic">{t.howItWorks.h2_2}</span>
               </h2>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                Consulta sem pressa, com escuta, explicação clara e plano construído para você.
-                Cada passo é discutido, e você sai entendendo o que está acontecendo e o que vem a seguir.
+                {t.howItWorks.desc}
               </p>
             </div>
 
             <div className="grid sm:grid-cols-2 gap-4">
-              {steps.map((step, i) => (
-                <div
-                  key={step.title}
-                  className="space-y-2"
-                  style={{ animationDelay: `${i * 0.1}s` }}
-                >
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-gold/10 rounded-lg flex items-center justify-center">
-                      <step.icon className="w-5 h-5 text-gold" />
+              {t.howItWorks.steps.map((step, i) => {
+                const Icon = ICONS[i];
+                return (
+                  <div
+                    key={step.title}
+                    className="space-y-2"
+                    style={{ animationDelay: `${i * 0.1}s` }}
+                  >
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 bg-gold/10 rounded-lg flex items-center justify-center">
+                        <Icon className="w-5 h-5 text-gold" />
+                      </div>
+                      <h3 className="font-display text-xl font-semibold text-foreground">
+                        {step.title}
+                      </h3>
                     </div>
-                    <h3 className="font-display text-xl font-semibold text-foreground">
-                      {step.title}
-                    </h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed pl-13">
+                      {step.description}
+                    </p>
                   </div>
-                  <p className="text-sm text-muted-foreground leading-relaxed pl-13">
-                    {step.description}
-                  </p>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
 

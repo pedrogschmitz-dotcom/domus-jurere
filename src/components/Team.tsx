@@ -1,38 +1,12 @@
-import { Instagram, Award, GraduationCap } from "lucide-react";
+import { Instagram } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 import drPedroImage from "@/assets/dr-pedro.jpeg";
 import draJuliaImage from "@/assets/dra-julia.jpeg";
 
+const TEAM_IMAGES = [drPedroImage, draJuliaImage];
+
 const Team = () => {
-  const doctors = [
-    {
-      name: "Dr. Pedro Schmitz",
-      specialty: "Médico",
-      description:
-        "Atendimento médico amplo, com foco em investigação e acompanhamento. Consulta extensa para entender o contexto antes de propor qualquer conduta.",
-      credentials: [
-        "Consulta clínica ampla",
-        "Investigação de sintomas",
-        "Acompanhamento contínuo",
-        "Cuidado com a pele",
-      ],
-      instagram: "DrPedroSchmitz",
-      image: drPedroImage,
-    },
-    {
-      name: "Dra. Júlia Schmitz",
-      specialty: "Médica",
-      description:
-        "Atendimento com foco em emagrecimento, saúde metabólica e saúde hormonal feminina. Plano individualizado, construído a partir da escuta e da investigação.",
-      credentials: [
-        "Emagrecimento e metabolismo",
-        "Saúde hormonal feminina",
-        "Acompanhamento individualizado",
-        "Hábitos e estilo de vida",
-      ],
-      instagram: "DraJuliaLongo",
-      image: draJuliaImage,
-    },
-  ];
+  const { t } = useLanguage();
 
   return (
     <section id="equipe" className="section-padding bg-beige">
@@ -53,7 +27,7 @@ const Team = () => {
 
         {/* Team Grid */}
         <div className="grid md:grid-cols-2 gap-8 lg:gap-12 max-w-5xl mx-auto">
-          {doctors.map((doctor, index) => (
+          {t.team.members.map((doctor, index) => (
             <div
               key={doctor.name}
               className="group"
@@ -63,7 +37,7 @@ const Team = () => {
                 {/* Image Container */}
                 <div className="relative aspect-[4/5] overflow-hidden">
                   <img
-                    src={doctor.image}
+                    src={TEAM_IMAGES[index]}
                     alt={doctor.name}
                     className="w-full h-full object-cover object-[center_30%] transition-transform duration-500 group-hover:scale-105"
                   />
@@ -94,28 +68,9 @@ const Team = () => {
                     {doctor.description}
                   </p>
 
-                  {/* Credentials */}
-                  <div className="space-y-2">
-                    <div className="flex items-center gap-2 text-sm font-medium text-foreground">
-                      <GraduationCap size={16} className="text-gold" />
-                      Áreas de atuação
-                    </div>
-                    <ul className="space-y-1.5">
-                      {doctor.credentials.map((credential) => (
-                        <li
-                          key={credential}
-                          className="flex items-center gap-2 text-sm text-muted-foreground"
-                        >
-                          <Award size={14} className="text-gold shrink-0" />
-                          {credential}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
                   {/* Instagram CTA */}
                   <a
-                    href={`https://instagram.com/${doctor.instagram}`}
+                    href={`https://instagram.com/DrPedroSchmitz`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="btn-outline w-full flex items-center justify-center gap-2 mt-4"

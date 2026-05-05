@@ -1,7 +1,7 @@
 import { ArrowRight, Check } from "lucide-react";
 import { trackEvent } from "@/lib/analytics";
 
-const WA_BASE = "https://wa.me/5548988064337";
+const WA_BASE = "https://wa.me/5548984680088";
 
 type ServiceGroup = {
   id: string;

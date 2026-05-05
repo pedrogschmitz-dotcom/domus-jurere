@@ -4,7 +4,7 @@ import { useIsMobile } from "@/hooks/use-mobile";
 import { trackEvent } from "@/lib/analytics";
 
 const WA_LINK =
-  "https://wa.me/5548988064337?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta%20na%20Curae%20Sant%C3%A9.";
+  "https://wa.me/5548984680088?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta%20na%20Curae%20Sant%C3%A9.";
 
 const STORAGE_KEY = "mobile_cta_variant";
 
