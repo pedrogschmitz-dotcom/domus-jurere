@@ -174,7 +174,7 @@ export default function Quartos() {
         <div className="reveal reveal-delay-2 mt-10 grid gap-10 lg:grid-cols-[1.3fr_0.7fr] lg:items-stretch">
           <div className="h-full">
             <div
-              className="group relative h-full min-h-[460px] overflow-hidden border border-[rgba(212,188,128,0.2)] bg-[var(--ink-soft)] md:min-h-[560px]"
+              className="group relative aspect-[4/5] w-full overflow-hidden border border-[rgba(212,188,128,0.2)] bg-[var(--ink-soft)] md:aspect-[5/6] lg:aspect-[16/9]"
               onMouseEnter={() => setThumbMenuOpen(true)}
               onMouseLeave={() => setThumbMenuOpen(false)}
               onTouchStart={() => setThumbMenuOpen(true)}
