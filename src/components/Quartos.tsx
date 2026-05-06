@@ -171,10 +171,10 @@ export default function Quartos() {
           </div>
         </div>
 
-        <div className="reveal reveal-delay-2 mt-10 grid gap-8">
+        <div className="reveal reveal-delay-2 mt-10 grid gap-10 lg:grid-cols-[1.4fr_0.6fr] lg:items-stretch">
           <div className="h-full">
             <div
-              className="group relative aspect-[4/5] w-full overflow-hidden border border-[rgba(212,188,128,0.2)] bg-black md:aspect-[1600/1204]"
+              className="group relative aspect-[1600/1204] w-full overflow-hidden border border-[rgba(212,188,128,0.2)] bg-black"
               onMouseEnter={() => setThumbMenuOpen(true)}
               onMouseLeave={() => setThumbMenuOpen(false)}
               onTouchStart={() => setThumbMenuOpen(true)}
@@ -183,7 +183,7 @@ export default function Quartos() {
                 src={photoPath(suiteAtiva.id, activePhoto)}
                 alt={`${suiteAtiva.nome} - foto ${fotoAtiva}`}
                 wrapperClassName="h-full w-full"
-                className="h-full w-full object-contain object-center"
+                className="h-full w-full object-cover object-center"
               />
               <div className="pointer-events-none absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-[rgba(8,8,8,0.58)] to-transparent" />
 
@@ -280,7 +280,7 @@ export default function Quartos() {
             </div>
           </div>
 
-          <aside className="mx-auto flex w-full max-w-4xl flex-col border border-[rgba(212,188,128,0.2)] bg-[linear-gradient(180deg,rgba(20,20,20,0.75),rgba(10,10,10,0.92))] p-7 md:p-8">
+          <aside className="flex h-full flex-col border border-[rgba(212,188,128,0.2)] bg-[linear-gradient(180deg,rgba(20,20,20,0.75),rgba(10,10,10,0.92))] p-7 md:p-8">
             <p className="label-track">{t.quartos.colecao}</p>
             <h3 className="mt-5 font-display text-3xl font-normal italic text-[var(--cream)] md:text-[44px]">
               {suiteAtiva.nome}
