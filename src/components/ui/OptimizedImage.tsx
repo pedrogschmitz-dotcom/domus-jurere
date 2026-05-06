@@ -8,18 +8,24 @@ interface OptimizedImageProps extends React.ImgHTMLAttributes<HTMLImageElement> 
 
 export function OptimizedImage({ src, alt, showSkeleton = true, className = "", ...props }: OptimizedImageProps) {
   const [isLoading, setIsLoading] = useState(true);
-  const [hasError, setHasError] = useState(false);
+  const [preferWebp, setPreferWebp] = useState(true);
 
-  // Convert jpg to webp path
-  const webpSrc = src.replace(/\.(jpg|jpeg|png)$/i, ".webp");
+  const canGenerateWebp = /\.(jpg|jpeg|png)$/i.test(src);
+  const webpSrc = canGenerateWebp ? src.replace(/\.(jpg|jpeg|png)$/i, ".webp") : src;
 
   const handleLoad = () => {
     setIsLoading(false);
   };
 
   const handleError = () => {
+    // If WebP is missing, retry immediately with the original source.
+    if (preferWebp && canGenerateWebp) {
+      setPreferWebp(false);
+      setIsLoading(true);
+      return;
+    }
+
     setIsLoading(false);
-    setHasError(true);
   };
 
   return (
@@ -28,7 +34,7 @@ export function OptimizedImage({ src, alt, showSkeleton = true, className = "", 
         <div className={`absolute inset-0 bg-gradient-to-r from-[rgba(212,175,100,0.1)] via-[rgba(212,175,100,0.05)] to-[rgba(212,175,100,0.1)] animate-pulse ${className}`} />
       )}
       <picture>
-        <source srcSet={webpSrc} type="image/webp" />
+        {preferWebp && canGenerateWebp && <source srcSet={webpSrc} type="image/webp" />}
         <img
           src={src}
           alt={alt}

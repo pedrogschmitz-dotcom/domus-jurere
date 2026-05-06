@@ -6,10 +6,10 @@ import type { Lang } from "@/lib/translations";
 const FlagIcons: Record<Lang, React.ReactNode> = {
   pt: (
     <svg viewBox="0 0 900 600" className="h-5 w-5" aria-hidden="true">
-      <rect width="900" height="600" fill="#002776"/>
-      <rect x="360" width="180" height="600" fill="#FCCB00"/>
-      <circle cx="450" cy="300" r="150" fill="#002776"/>
-      <path d="M370 270 Q450 240 480 300 Q450 360 370 330 Z" fill="#FCCB00"/>
+      <rect width="900" height="600" fill="#009739" />
+      <path d="M450 85 L765 300 L450 515 L135 300 Z" fill="#FEDD00" />
+      <circle cx="450" cy="300" r="125" fill="#012169" />
+      <path d="M300 315 C375 270 525 270 600 315" stroke="#FFFFFF" strokeWidth="24" fill="none" />
     </svg>
   ),
   es: (
