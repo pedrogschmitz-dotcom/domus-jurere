@@ -171,10 +171,10 @@ export default function Quartos() {
           </div>
         </div>
 
-        <div className="reveal reveal-delay-2 mt-10 grid gap-10 lg:grid-cols-[1.3fr_0.7fr] lg:items-stretch">
+        <div className="reveal reveal-delay-2 mt-10 grid gap-8">
           <div className="h-full">
             <div
-              className="group relative aspect-[4/5] w-full overflow-hidden border border-[rgba(212,188,128,0.2)] bg-black md:aspect-[4/3] lg:aspect-[4/3]"
+              className="group relative aspect-[4/5] w-full overflow-hidden border border-[rgba(212,188,128,0.2)] bg-black md:aspect-[1600/1204]"
               onMouseEnter={() => setThumbMenuOpen(true)}
               onMouseLeave={() => setThumbMenuOpen(false)}
               onTouchStart={() => setThumbMenuOpen(true)}
@@ -183,9 +183,9 @@ export default function Quartos() {
                 src={photoPath(suiteAtiva.id, activePhoto)}
                 alt={`${suiteAtiva.nome} - foto ${fotoAtiva}`}
                 wrapperClassName="h-full w-full"
-                className="h-full w-full object-contain"
+                className="h-full w-full object-contain object-center"
               />
-              <div className="pointer-events-none absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-[rgba(8,8,8,0.82)] to-transparent" />
+              <div className="pointer-events-none absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-[rgba(8,8,8,0.58)] to-transparent" />
 
               {suiteAtiva.destaque && (
                 <span className="absolute right-5 top-5 z-[3] bg-[var(--gold)] px-3 py-1 text-[9px] font-bold uppercase tracking-[0.24em] text-[var(--ink)]">
@@ -280,7 +280,7 @@ export default function Quartos() {
             </div>
           </div>
 
-          <aside className="flex h-full flex-col border border-[rgba(212,188,128,0.2)] bg-[linear-gradient(180deg,rgba(20,20,20,0.75),rgba(10,10,10,0.92))] p-7 md:p-8">
+          <aside className="mx-auto flex w-full max-w-4xl flex-col border border-[rgba(212,188,128,0.2)] bg-[linear-gradient(180deg,rgba(20,20,20,0.75),rgba(10,10,10,0.92))] p-7 md:p-8">
             <p className="label-track">{t.quartos.colecao}</p>
             <h3 className="mt-5 font-display text-3xl font-normal italic text-[var(--cream)] md:text-[44px]">
               {suiteAtiva.nome}
