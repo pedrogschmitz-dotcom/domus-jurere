@@ -31,7 +31,7 @@ interface Suite {
 }
 
 function photoPath(id: string, n: number) {
-  return `/images/quartos/${id}/${n}.jpg`;
+  return `/images/quartos/${id}/${n}.webp`;
 }
 
 function resolvePhoto(suite: Suite, position: number): number {
@@ -180,7 +180,7 @@ export default function Quartos() {
               onTouchStart={() => setThumbMenuOpen(true)}
             >
               <OptimizedImage
-                src={`/images/quartos/${suiteAtiva.id}/${activePhoto}.jpg`}
+                src={photoPath(suiteAtiva.id, activePhoto)}
                 alt={`${suiteAtiva.nome} - foto ${fotoAtiva}`}
                 className="h-full w-full object-cover"
               />
@@ -192,7 +192,11 @@ export default function Quartos() {
                 </span>
               )}
 
-              <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between gap-4">
+              <div
+                className={`absolute left-5 right-5 flex items-end justify-between gap-4 transition-all duration-300 ${
+                  thumbMenuOpen ? "bottom-24" : "bottom-5"
+                }`}
+              >
                 <div>
                   <p className="text-[9px] tracking-[0.24em] text-[var(--gold)]">{suiteAtiva.nome.toUpperCase()}</p>
                   <h3 className="font-display text-3xl italic text-[var(--cream)] md:text-5xl">{suiteAtiva.deus}</h3>
@@ -265,7 +269,7 @@ export default function Quartos() {
                         }`}
                       >
                         <OptimizedImage
-                          src={`/images/quartos/${suiteAtiva.id}/${photoNumber}.jpg`}
+                          src={photoPath(suiteAtiva.id, photoNumber)}
                           alt={`${suiteAtiva.nome} miniatura ${n}`}
                           className="h-16 w-24 object-cover transition-transform duration-500 group-hover/shadow:scale-105"
                           showSkeleton={false}
