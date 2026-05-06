@@ -1,4 +1,5 @@
 import { Heart, Shield, Award, Users } from "lucide-react";
+import { OptimizedImage } from "./ui/OptimizedImage";
 const About = () => {
   const values = [{
     icon: Heart,

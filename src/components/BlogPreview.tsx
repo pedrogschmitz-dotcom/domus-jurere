@@ -3,6 +3,7 @@ import { getPublishedPosts, formatDatePtBR } from "@/lib/blog";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { OptimizedImage } from "@/components/ui/OptimizedImage";
 
 const BlogPreview = () => {
   const navigate = useNavigate();
@@ -29,10 +30,9 @@ const BlogPreview = () => {
             >
               {post.imagem && (
                 <div className="relative overflow-hidden">
-                  <img
+                  <OptimizedImage
                     src={post.imagem}
                     alt={post.imagem_alt}
-                    loading="lazy"
                     className="w-full h-48 object-cover photo-grade transition-transform duration-500 group-hover:scale-105"
                   />
                   <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-foreground/15 to-transparent opacity-60" />

@@ -2,6 +2,7 @@ import { X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import LanguageSwitcher from "./LanguageSwitcher";
+import { OptimizedImage } from "./ui/OptimizedImage";
 
 const WHATSAPP = "https://wa.me/5548984680088";
 const INSTAGRAM = "https://www.instagram.com/domus.jurere";
@@ -46,17 +47,19 @@ export default function Header() {
         <div className="mx-auto flex h-20 w-full max-w-7xl items-center px-5 md:px-8">
           {/* Logo */}
           <a href="#mansao" className="hidden md:block">
-            <img
+            <OptimizedImage
               src="./images/logo-domus.png"
               alt="DOMUS Jurerê Internacional"
               className="h-10 w-auto object-contain"
+              showSkeleton={false}
             />
           </a>
           <a href="#mansao" className="md:hidden">
-            <img
+            <OptimizedImage
               src="./images/logo-domus.png"
               alt="DOMUS Jurerê Internacional"
               className="h-8 w-auto object-contain"
+              showSkeleton={false}
             />
           </a>
 

@@ -1,5 +1,6 @@
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { OptimizedImage } from "./ui/OptimizedImage";
 
 const SUITE_SRCS = [
   "./images/interior.jpg",

@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 import { ChevronLeft, ChevronRight, Expand, X } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { OptimizedImage } from "./ui/OptimizedImage";
 
 const WHATSAPP =
   "https://wa.me/5548984680088?text=Ol%C3%A1%2C%20quero%20saber%20mais%20sobre%20a%20Domus%20Jurer%C3%AA";
@@ -75,7 +76,7 @@ function Lightbox({ suite, startIndex, onClose }: LightboxProps) {
         <ChevronLeft size={36} />
       </button>
 
-      <img
+      <OptimizedImage
         src={photoPath(suite.id, resolvePhoto(suite, idx + 1))}
         alt={`${suite.nome} - foto ${idx + 1}`}
         className="max-h-[88vh] max-w-[90vw] object-contain"
@@ -169,7 +170,7 @@ export default function Quartos() {
         <div className="reveal reveal-delay-2 mt-10 grid gap-10 lg:grid-cols-[1.3fr_0.7fr] lg:items-start">
           <div>
             <div className="relative overflow-hidden border border-[rgba(212,188,128,0.2)] bg-[var(--ink-soft)]">
-              <img
+              <OptimizedImage
                 src={photoPath(suiteAtiva.id, resolvePhoto(suiteAtiva, fotoAtiva))}
                 alt={`${suiteAtiva.nome} - foto ${fotoAtiva}`}
                 className="h-[56vh] min-h-[420px] w-full object-cover md:h-[64vh]"
@@ -227,10 +228,11 @@ export default function Quartos() {
                       : "border-[rgba(212,188,128,0.18)] hover:border-[rgba(212,188,128,0.48)]"
                   }`}
                 >
-                  <img
+                  <OptimizedImage
                     src={photoPath(suiteAtiva.id, resolvePhoto(suiteAtiva, n))}
                     alt={`${suiteAtiva.nome} miniatura ${n}`}
                     className="h-16 w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    showSkeleton={false}
                   />
                 </button>
               ))}
