@@ -183,7 +183,7 @@ export default function Quartos() {
                 src={photoPath(suiteAtiva.id, activePhoto)}
                 alt={`${suiteAtiva.nome} - foto ${fotoAtiva}`}
                 wrapperClassName="h-full w-full"
-                className="h-full w-full object-cover object-center"
+                className="h-full w-full object-cover object-bottom"
               />
               <div className="pointer-events-none absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-[rgba(8,8,8,0.82)] to-transparent" />
 
