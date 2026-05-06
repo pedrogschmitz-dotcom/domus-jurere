@@ -1,61 +1,26 @@
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { FormEvent, useState } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import {
+  ContactFormErrors,
+  ContactFormState,
+  initialContactFormState,
+  validateContactForm,
+} from "@/lib/contactFormValidation";
 
 const WHATSAPP_BASE = "https://wa.me/5548984680088";
 
-type FormState = {
-  nome: string;
-  email: string;
-  telefone: string;
-  período: string;
-  mensagem: string;
-};
-
-type FormErrors = Partial<Record<keyof FormState, string>>;
-
-const initialState: FormState = {
-  nome: "",
-  email: "",
-  telefone: "",
-  período: "",
-  mensagem: "",
-};
-
-const validateForm = (form: FormState): FormErrors => {
-  const errors: FormErrors = {};
-
-  if (!form.nome.trim() || form.nome.trim().length < 3) {
-    errors.nome = "Nome deve ter pelo menos 3 caracteres";
-  }
-
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!form.email.trim() || !emailRegex.test(form.email)) {
-    errors.email = "Email inválido";
-  }
-
-  if (!form.telefone.trim() || form.telefone.replace(/\D/g, "").length < 10) {
-    errors.telefone = "Telefone deve ter pelo menos 10 dígitos";
-  }
-
-  if (!form.período.trim() || form.período.trim().length < 3) {
-    errors.período = "Período desejado é obrigatório";
-  }
-
-  return errors;
-};
-
 export default function Contato() {
   const { t } = useLanguage();
-  const [form, setForm] = useState<FormState>(initialState);
-  const [errors, setErrors] = useState<FormErrors>({});
+  const [form, setForm] = useState<ContactFormState>(initialContactFormState);
+  const [errors, setErrors] = useState<ContactFormErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const revealRef = useScrollReveal<HTMLElement>();
 
   const onSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    const validationErrors = validateForm(form);
+    const validationErrors = validateContactForm(form);
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
       return;
@@ -68,18 +33,18 @@ export default function Contato() {
       `${t.contato.formNome}: ${form.nome}`,
       `${t.contato.formEmail}: ${form.email}`,
       `${t.contato.formTelefone}: ${form.telefone}`,
-      `${t.contato.formPeriodo}: ${form.período}`,
+      `${t.contato.formPeriodo}: ${form.periodo}`,
       `${t.contato.formMensagem}: ${form.mensagem || t.contato.formMensagemDefault}`,
     ].join("\n");
 
     window.open(`${WHATSAPP_BASE}?text=${encodeURIComponent(text)}`, "_blank", "noopener,noreferrer");
 
-    setForm(initialState);
+    setForm(initialContactFormState);
     setErrors({});
     setIsSubmitting(false);
   };
 
-  const handleChange = (field: keyof FormState) => (value: string) => {
+  const handleChange = (field: keyof ContactFormState) => (value: string) => {
     setForm((v) => ({ ...v, [field]: value }));
     if (errors[field]) {
       setErrors((prev) => {
@@ -90,7 +55,7 @@ export default function Contato() {
     }
   };
 
-  const isFormValid = Object.keys(validateForm(form)).length === 0;
+  const isFormValid = Object.keys(validateContactForm(form)).length === 0;
 
   return (
     <section className="bg-[var(--ink)] px-6 py-20 md:px-8 md:py-20" id="contato" ref={revealRef}>
@@ -169,14 +134,14 @@ export default function Contato() {
               id="periodo"
               type="text"
               required
-              aria-invalid={Boolean(errors.período)}
-              aria-describedby={errors.período ? "periodo-erro" : undefined}
+              aria-invalid={Boolean(errors.periodo)}
+              aria-describedby={errors.periodo ? "periodo-erro" : undefined}
               placeholder={t.contato.placeholderPeriodo}
-              value={form.período}
-              onChange={(e) => handleChange("período")(e.target.value)}
-              className={`form-input reveal reveal-delay-2 ${errors.período ? "border-red-500 bg-red-500/5" : ""}`}
+              value={form.periodo}
+              onChange={(e) => handleChange("periodo")(e.target.value)}
+              className={`form-input reveal reveal-delay-2 ${errors.periodo ? "border-red-500 bg-red-500/5" : ""}`}
             />
-            {errors.período && <p id="periodo-erro" className="text-xs text-red-400 mt-1">{errors.período}</p>}
+            {errors.periodo && <p id="periodo-erro" className="text-xs text-red-400 mt-1">{errors.periodo}</p>}
           </div>
 
           <div>

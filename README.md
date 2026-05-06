@@ -60,6 +60,21 @@ This project is built with:
 - shadcn-ui
 - Tailwind CSS
 
+## Technical Quality (Phase 4)
+
+This repository now includes a baseline technical quality layer:
+
+- Runtime fallback with Error Boundary
+- Unit test setup with Vitest
+- Contact form validation extracted to a reusable module with tests
+
+Useful commands:
+
+```sh
+npm run test
+npm run test:run
+```
+
 ## How can I deploy this project?
 
 Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
