@@ -174,7 +174,7 @@ export default function Quartos() {
         <div className="reveal reveal-delay-2 mt-10 grid gap-10 lg:grid-cols-[1.3fr_0.7fr] lg:items-stretch">
           <div className="h-full">
             <div
-              className="group relative aspect-[4/5] w-full overflow-hidden border border-[rgba(212,188,128,0.2)] bg-[var(--ink-soft)] md:aspect-[4/3] lg:aspect-[4/3]"
+              className="group relative aspect-[4/5] w-full overflow-hidden border border-[rgba(212,188,128,0.2)] bg-black md:aspect-[4/3] lg:aspect-[4/3]"
               onMouseEnter={() => setThumbMenuOpen(true)}
               onMouseLeave={() => setThumbMenuOpen(false)}
               onTouchStart={() => setThumbMenuOpen(true)}
@@ -183,7 +183,7 @@ export default function Quartos() {
                 src={photoPath(suiteAtiva.id, activePhoto)}
                 alt={`${suiteAtiva.nome} - foto ${fotoAtiva}`}
                 wrapperClassName="h-full w-full"
-                className="h-full w-full object-cover object-bottom"
+                className="h-full w-full object-contain"
               />
               <div className="pointer-events-none absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-[rgba(8,8,8,0.82)] to-transparent" />
 
