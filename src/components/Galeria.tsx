@@ -1,6 +1,7 @@
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { useMemo, useEffect, useRef, useState, useCallback } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { getAdjacentIndexes, getSwipeDirection } from "@/lib/gallery";
 
 const MEDIA_SRCS = [
   "./videos/clip1-entrada.mp4",
@@ -113,8 +114,7 @@ export default function Galeria() {
   }));
 
   const n = media.length;
-  const prevIndex = useMemo(() => (active - 1 + n) % n, [active, n]);
-  const nextIndex = useMemo(() => (active + 1) % n, [active, n]);
+  const { prevIndex, nextIndex } = useMemo(() => getAdjacentIndexes(active, n), [active, n]);
 
   const goPrev = () => setActive((v) => (v - 1 + n) % n);
   const goNext = () => setActive((v) => (v + 1) % n);
@@ -122,10 +122,9 @@ export default function Galeria() {
   const handleTouchStart = (x: number) => { setTouchStartX(x); setTouchEndX(x); };
   const handleTouchMove  = (x: number) => setTouchEndX(x);
   const handleTouchEnd   = () => {
-    if (touchStartX === null || touchEndX === null) return;
-    const d = touchStartX - touchEndX;
-    if (d > 40) goNext();
-    else if (d < -40) goPrev();
+    const swipeDirection = getSwipeDirection(touchStartX, touchEndX);
+    if (swipeDirection === "next") goNext();
+    if (swipeDirection === "prev") goPrev();
     setTouchStartX(null);
     setTouchEndX(null);
   };

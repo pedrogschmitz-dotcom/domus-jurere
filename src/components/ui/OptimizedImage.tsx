@@ -21,6 +21,7 @@ export function OptimizedImage({
   const [isLoading, setIsLoading] = useState(true);
 
   const canGenerateWebp = /\.(jpg|jpeg|png)$/i.test(src);
+  const avifSrc = canGenerateWebp ? src.replace(/\.(jpg|jpeg|png)$/i, ".avif") : src;
   const webpSrc = canGenerateWebp ? src.replace(/\.(jpg|jpeg|png)$/i, ".webp") : src;
 
   const handleLoad = () => {
@@ -37,6 +38,7 @@ export function OptimizedImage({
         <div className={`absolute inset-0 bg-gradient-to-r from-[rgba(212,175,100,0.1)] via-[rgba(212,175,100,0.05)] to-[rgba(212,175,100,0.1)] animate-pulse ${className}`} />
       )}
       <picture>
+        {canGenerateWebp && <source srcSet={avifSrc} type="image/avif" />}
         {canGenerateWebp && <source srcSet={webpSrc} type="image/webp" />}
         <img
           src={src}

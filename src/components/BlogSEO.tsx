@@ -1,7 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import type { BlogPost } from "@/lib/blog";
 
-const BASE_URL = "https://curaesante.com.br";
+const BASE_URL = "https://domusjurere.com";
 
 interface BlogSEOProps {
   post: BlogPost;
@@ -22,10 +22,10 @@ const BlogSEO = ({ post }: BlogSEOProps) => {
     author: { "@type": "Person", name: post.autor },
     publisher: {
       "@type": "Organization",
-      name: "Curae Santé",
+      name: "Domus Jurerê",
       logo: {
         "@type": "ImageObject",
-        url: `${BASE_URL}/logo-curae.png`,
+        url: `${BASE_URL}/images/logo-domus.png`,
       },
     },
     mainEntityOfPage: url,
@@ -33,7 +33,7 @@ const BlogSEO = ({ post }: BlogSEOProps) => {
 
   return (
     <Helmet>
-      <title>{post.title} — Curae Santé</title>
+      <title>{post.title} — Domus Jurerê</title>
       <meta name="description" content={post.resumo} />
       <link rel="canonical" href={url} />
 

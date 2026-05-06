@@ -2,13 +2,18 @@ import { useEffect, useState } from "react";
 
 export default function CustomCursor() {
   const [isTouchDevice, setIsTouchDevice] = useState(true);
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
   const [position, setPosition] = useState({ x: -100, y: -100 });
   const [hovered, setHovered] = useState(false);
 
   useEffect(() => {
     const touch = "ontouchstart" in window || navigator.maxTouchPoints > 0;
+    const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const syncReducedMotion = () => setPrefersReducedMotion(reducedMotionQuery.matches);
+    syncReducedMotion();
+
     setIsTouchDevice(touch);
-    if (touch) return;
+    if (touch || reducedMotionQuery.matches) return;
 
     const move = (event: MouseEvent) => setPosition({ x: event.clientX, y: event.clientY });
     const over = (event: MouseEvent) => {
@@ -18,14 +23,16 @@ export default function CustomCursor() {
 
     window.addEventListener("mousemove", move);
     window.addEventListener("mouseover", over);
+    reducedMotionQuery.addEventListener("change", syncReducedMotion);
 
     return () => {
       window.removeEventListener("mousemove", move);
       window.removeEventListener("mouseover", over);
+      reducedMotionQuery.removeEventListener("change", syncReducedMotion);
     };
   }, []);
 
-  if (isTouchDevice) return null;
+  if (isTouchDevice || prefersReducedMotion) return null;
 
   return (
     <div

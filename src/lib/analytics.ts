@@ -1,3 +1,5 @@
+import { onCLS, onINP, onLCP } from "web-vitals";
+
 declare global {
   interface Window {
     dataLayer: unknown[];
@@ -40,4 +42,18 @@ export function trackPageView(path: string): void {
 export function trackEvent(eventName: string, params: Record<string, unknown> = {}): void {
   if (!GA_MEASUREMENT_ID || typeof window === "undefined" || !window.gtag) return;
   window.gtag("event", eventName, params);
+}
+
+export function reportWebVitals(): void {
+  const send = (metricName: string, value: number) => {
+    trackEvent("web_vital", {
+      metric_name: metricName,
+      metric_value: Number(value.toFixed(2)),
+      page_path: typeof window !== "undefined" ? window.location.pathname : "/",
+    });
+  };
+
+  onCLS((metric) => send("CLS", metric.value));
+  onINP((metric) => send("INP", metric.value));
+  onLCP((metric) => send("LCP", metric.value));
 }

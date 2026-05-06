@@ -1,10 +1,10 @@
 import { Helmet } from "react-helmet-async";
 
-const BASE_URL = "https://curaesante.com.br";
-const DEFAULT_TITLE = "Curae Santé — Clínica médica em Kobrasol, São José SC";
+const BASE_URL = "https://domusjurere.com";
+const DEFAULT_TITLE = "Domus Jurerê — Residência de Alto Padrão em Jurerê Internacional";
 const DEFAULT_DESCRIPTION =
-  "Clínica médica em Kobrasol com foco em saúde da pele, emagrecimento, saúde metabólica e saúde hormonal feminina. Consulta clínica extensa para quem já tentou outros caminhos.";
-const DEFAULT_IMAGE = `${BASE_URL}/og-image.jpg`;
+  "Conheça a Domus Jurerê, residência de alto padrão em Jurerê Internacional, Florianópolis. Estrutura completa, ambientes exclusivos e atendimento privado.";
+const DEFAULT_IMAGE = `${BASE_URL}/images/og-cover.jpg`;
 
 interface SEOProps {
   title?: string;
@@ -23,38 +23,27 @@ const SEO = ({
   type = "website",
   faq = [],
 }: SEOProps) => {
-  const fullTitle = title ? `${title} — Curae Santé` : DEFAULT_TITLE;
+  const fullTitle = title ? `${title} — Domus Jurerê` : DEFAULT_TITLE;
   const desc = description ?? DEFAULT_DESCRIPTION;
   const url = `${BASE_URL}${path}`;
   const img = image ?? DEFAULT_IMAGE;
 
   const localBusinessJsonLd = {
     "@context": "https://schema.org",
-    "@type": "MedicalClinic",
-    name: "Curae Santé Clínica Médica",
+    "@type": "LodgingBusiness",
+    name: "Domus Jurerê",
     image: img,
     url: BASE_URL,
-    telephone: "+55 48 8806-4337",
-    email: "curaesante@gmail.com",
+    telephone: "+55 48 98468-0088",
     address: {
       "@type": "PostalAddress",
-      streetAddress: "Av. Delamar Jose da Silva, 186, loja 03",
-      addressLocality: "São José",
+      addressLocality: "Florianópolis",
       addressRegion: "SC",
-      postalCode: "88102-100",
       addressCountry: "BR",
     },
-    areaServed: "São José, Florianópolis e região",
-    openingHoursSpecification: [{
-      "@type": "OpeningHoursSpecification",
-      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-      opens: "09:00",
-      closes: "18:00",
-    }],
+    areaServed: "Jurerê Internacional, Florianópolis e região",
     sameAs: [
-      "https://instagram.com/CuraeSante",
-      "https://www.facebook.com/profile.php?id=61574513032901&locale=pt_BR",
-      "https://share.google/HZaHtH75KBL1D5QhZ",
+      "https://www.instagram.com/domus.jurere",
     ],
   };
 
@@ -84,7 +73,7 @@ const SEO = ({
       <meta property="og:description" content={desc} />
       <meta property="og:url" content={url} />
       <meta property="og:image" content={img} />
-      <meta property="og:site_name" content="Curae Santé" />
+      <meta property="og:site_name" content="Domus Jurerê" />
       <meta property="og:locale" content="pt_BR" />
 
       <meta name="twitter:card" content="summary_large_image" />

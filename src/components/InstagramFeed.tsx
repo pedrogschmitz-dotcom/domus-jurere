@@ -27,7 +27,7 @@ const InstagramFeed = () => {
         <div className="text-center max-w-3xl mx-auto mb-12 space-y-4">
           <span className="inline-block px-4 py-2 bg-gold/10 rounded-full text-sm font-medium text-gold-dark">
             <Instagram className="inline-block w-4 h-4 mr-2" />
-            @curaesante
+            @domus.jurere
           </span>
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-semibold text-foreground">
             Acompanhe no{" "}
@@ -49,7 +49,7 @@ const InstagramFeed = () => {
         {/* View All CTA */}
         <div className="text-center mt-12">
           <a
-            href="https://www.instagram.com/curaesante"
+            href="https://www.instagram.com/domus.jurere"
             target="_blank"
             rel="noopener noreferrer"
             className="btn-outline inline-flex items-center gap-2"

@@ -130,6 +130,7 @@ export default function Hero() {
     <section ref={sectionRef} id="mansao" className="relative flex min-h-screen flex-col overflow-hidden">
       {/* Foto de fundo */}
       <picture>
+        <source srcSet="./images/fachada.avif" type="image/avif" />
         <source srcSet="./images/fachada.webp" type="image/webp" />
         <img
           src="./images/fachada.jpg"

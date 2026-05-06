@@ -49,6 +49,26 @@ async function ensureWebp(sourcePath) {
   }
 }
 
+async function ensureAvif(sourcePath) {
+  const targetPath = sourcePath.replace(IMAGE_REGEX, ".avif");
+
+  try {
+    const [srcStat, dstStat] = await Promise.all([
+      fs.stat(sourcePath),
+      fs.stat(targetPath).catch(() => null),
+    ]);
+
+    if (dstStat && dstStat.mtimeMs >= srcStat.mtimeMs) {
+      return { sourcePath, targetPath, skipped: true };
+    }
+
+    await sharp(sourcePath).avif({ quality: 50 }).toFile(targetPath);
+    return { sourcePath, targetPath, skipped: false };
+  } catch (error) {
+    return { sourcePath, targetPath, skipped: false, error };
+  }
+}
+
 async function main() {
   const existingDirs = [];
   for (const dir of TARGET_DIRS) {
@@ -67,15 +87,20 @@ async function main() {
     sourceFiles.push(...(await walk(dir)));
   }
 
-  const results = await Promise.all(sourceFiles.map(ensureWebp));
+  const webpResults = await Promise.all(sourceFiles.map(ensureWebp));
+  const avifResults = await Promise.all(sourceFiles.map(ensureAvif));
 
-  const failed = results.filter((r) => r.error);
-  const converted = results.filter((r) => !r.error && !r.skipped);
-  const skipped = results.filter((r) => !r.error && r.skipped);
+  const failed = [...webpResults, ...avifResults].filter((r) => r.error);
+  const webpConverted = webpResults.filter((r) => !r.error && !r.skipped);
+  const webpSkipped = webpResults.filter((r) => !r.error && r.skipped);
+  const avifConverted = avifResults.filter((r) => !r.error && !r.skipped);
+  const avifSkipped = avifResults.filter((r) => !r.error && r.skipped);
 
-  console.log(`Total de imagens analisadas: ${results.length}`);
-  console.log(`Convertidas para WebP: ${converted.length}`);
-  console.log(`Ja atualizadas (sem conversao): ${skipped.length}`);
+  console.log(`Total de imagens analisadas: ${sourceFiles.length}`);
+  console.log(`Convertidas para WebP: ${webpConverted.length}`);
+  console.log(`Ja atualizadas WebP (sem conversao): ${webpSkipped.length}`);
+  console.log(`Convertidas para AVIF: ${avifConverted.length}`);
+  console.log(`Ja atualizadas AVIF (sem conversao): ${avifSkipped.length}`);
 
   if (failed.length > 0) {
     console.error(`Falhas na conversao: ${failed.length}`);
