@@ -70,7 +70,6 @@ body::before {
 
 * {
   box-sizing: border-box;
-  cursor: none !important;
 }
 
 .font-display {
@@ -265,8 +264,3 @@ select:focus-visible,
   animation-delay: 0.5s;
 }
 
-@media (max-width: 768px) {
-  * {
-    cursor: auto !important;
-  }
-}

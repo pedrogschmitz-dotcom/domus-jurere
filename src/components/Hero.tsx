@@ -129,11 +129,17 @@ export default function Hero() {
   return (
     <section ref={sectionRef} id="mansao" className="relative flex min-h-screen flex-col overflow-hidden">
       {/* Foto de fundo */}
-      <img
-        src="./images/fachada.jpg"
-        alt="Fachada da DOMUS.JURERE em Jurerê Internacional"
-        className="absolute inset-0 h-full w-full object-cover"
-      />
+      <picture>
+        <source srcSet="./images/fachada.webp" type="image/webp" />
+        <img
+          src="./images/fachada.jpg"
+          alt="Fachada da DOMUS.JURERE em Jurerê Internacional"
+          className="absolute inset-0 h-full w-full object-cover"
+          loading="eager"
+          fetchPriority="high"
+          decoding="async"
+        />
+      </picture>
 
       {/* Canvas: véu escuro com recorte no formato da logo + hover reveal */}
       <canvas

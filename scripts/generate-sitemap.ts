@@ -1,11 +1,11 @@
 import fs from 'fs';
 import path from 'path';
 
-const BASE_URL = 'https://curaesante.com.br';
+const BASE_URL = 'https://domusjurere.com';
 const BLOG_DIR = path.resolve('content/blog');
 const OUT = path.resolve('public/sitemap.xml');
 
-const staticRoutes = ['/', '/sobre', '/servicos', '/equipe', '/blog', '/faq', '/metabolismo-feminino', '/contato'];
+const staticRoutes = ['/'];
 
 function parseFrontmatter(raw: string) {
   const match = raw.match(/^---\r?\n([\s\S]*?)\r?\n---/);
@@ -26,7 +26,7 @@ function parseFrontmatter(raw: string) {
 
 const today = new Date().toISOString().split('T')[0];
 
-let urls = staticRoutes.map(r => `  <url>
+const urls = staticRoutes.map(r => `  <url>
     <loc>${BASE_URL}${r}</loc>
     <lastmod>${today}</lastmod>
   </url>`);

@@ -56,6 +56,7 @@ export default function Header() {
               alt="DOMUS Jurerê Internacional"
               className="h-10 w-auto object-contain"
               showSkeleton={false}
+              priority
             />
           </a>
           <a href="#mansao" className="md:hidden">
@@ -64,6 +65,7 @@ export default function Header() {
               alt="DOMUS Jurerê Internacional"
               className="h-8 w-auto object-contain"
               showSkeleton={false}
+              priority
             />
           </a>
 

@@ -71,9 +71,17 @@ This repository now includes a baseline technical quality layer:
 Useful commands:
 
 ```sh
+npm run typecheck
 npm run test
 npm run test:run
+npm run images:modern
 ```
+
+## Active Architecture
+
+- Current production entrypoint: `src/main.tsx` -> `src/App.tsx`
+- Legacy route-based pages were removed to avoid stale code paths and maintenance drift
+- Main site uses a single-page section architecture with in-page anchors
 
 ## How can I deploy this project?
 

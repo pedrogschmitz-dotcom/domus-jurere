@@ -46,18 +46,18 @@ const Team = () => {
                   {/* Info Overlay */}
                   <div className="absolute bottom-0 left-0 right-0 p-6 text-cream-light">
                     <p className="text-gold font-medium mb-1">
-                      {doctor.specialty}
+                      {doctor.title}
                     </p>
                     <h3 className="font-display text-2xl font-semibold mb-3">
                       {doctor.name}
                     </h3>
                     <a
-                      href={`https://instagram.com/${doctor.instagram}`}
+                      href="https://instagram.com/domus.jurere"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-2 text-cream-light/90 hover:text-gold transition-colors"
                     >
-                      <Instagram size={18} />@{doctor.instagram}
+                      <Instagram size={18} />@domus.jurere
                     </a>
                   </div>
                 </div>

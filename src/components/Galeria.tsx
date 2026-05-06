@@ -1,5 +1,5 @@
 import { useScrollReveal } from "@/hooks/useScrollReveal";
-import { useMemo, useEffect, useRef, useState } from "react";
+import { useMemo, useEffect, useRef, useState, useCallback } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const MEDIA_SRCS = [
@@ -10,26 +10,35 @@ const MEDIA_SRCS = [
   "./videos/clip5-garagem.mp4",
 ] as const;
 
+const MEDIA_POSTERS = [
+  "./images/fachada.jpg",
+  "./images/piscina.jpg",
+  "./images/detalhe.jpg",
+  "./images/interior.jpg",
+  "./images/aerea.jpg",
+] as const;
+
 type VideoSlideProps = {
   src: string;
   active: boolean;
+  poster: string;
   startAt?: number;
   segmentDuration?: number;
 };
 
-function VideoSlide({ src, active, startAt = 0, segmentDuration }: VideoSlideProps) {
+function VideoSlide({ src, active, poster, startAt = 0, segmentDuration }: VideoSlideProps) {
   const ref = useRef<HTMLVideoElement>(null);
   const [retryCount, setRetryCount] = useState(0);
   const MAX_RETRIES = 3;
 
-  const seekToStart = () => {
+    const seekToStart = useCallback(() => {
     if (!ref.current) return;
     if (startAt > 0) {
       ref.current.currentTime = startAt;
     } else {
       ref.current.currentTime = 0;
     }
-  };
+    }, [startAt]);
 
   useEffect(() => {
     if (!ref.current) return;
@@ -41,7 +50,7 @@ function VideoSlide({ src, active, startAt = 0, segmentDuration }: VideoSlidePro
     } else {
       ref.current.pause();
     }
-  }, [active, startAt]);
+  }, [active, seekToStart]);
 
   const handleLoadedMetadata = () => {
     if (!active) return;
@@ -75,12 +84,13 @@ function VideoSlide({ src, active, startAt = 0, segmentDuration }: VideoSlidePro
   return (
     <video
       ref={ref}
-      src={src}
+        src={active ? src : undefined}
+        poster={poster}
       className="h-full w-full object-cover"
       muted
       playsInline
       loop={!segmentDuration}
-      preload={active ? "auto" : "metadata"}
+        preload={active ? "auto" : "none"}
       onLoadedMetadata={handleLoadedMetadata}
       onTimeUpdate={handleTimeUpdate}
       onError={handleError}
@@ -192,6 +202,7 @@ export default function Galeria() {
                   <VideoSlide
                     src={item.src}
                     active={isCurrent}
+                      poster={MEDIA_POSTERS[idx]}
                     startAt={idx === 0 ? 2 : 0}
                     segmentDuration={idx === 0 ? 10 : undefined}
                   />

@@ -20,7 +20,7 @@ const Testimonials = () => {
 
         <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {t.testimonials.items.map((item) => (
-            <article key={item.name} className="card-elegant space-y-4">
+            <article key={item.author} className="card-elegant space-y-4">
               <div className="flex items-center gap-1 text-gold">
                 <Star size={16} fill="currentColor" />
                 <Star size={16} fill="currentColor" />
@@ -29,7 +29,7 @@ const Testimonials = () => {
                 <Star size={16} fill="currentColor" />
               </div>
               <p className="text-muted-foreground leading-relaxed">“{item.text}”</p>
-              <p className="text-sm font-medium text-foreground">{item.name}</p>
+              <p className="text-sm font-medium text-foreground">{item.author}</p>
             </article>
           ))}
         </div>

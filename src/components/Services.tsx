@@ -43,20 +43,21 @@ const Services = () => {
                 </p>
 
                 <a
-                href="https://wa.me/5548984680088?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20a%20Curae%20Sant%C3%A9."
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => trackEvent("whatsapp_click", { location: `services_${service.title}` })}
-                className="inline-flex items-center gap-2 text-gold font-medium mt-auto group/link"
-              >
-                Falar no WhatsApp
-                <ArrowRight
-                  size={16}
-                  className="group-hover/link:translate-x-1 transition-transform"
-                />
-              </a>
-            </div>
-          ))}
+                  href="https://wa.me/5548984680088?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20a%20Domus%20Jurer%C3%AA."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => trackEvent("whatsapp_click", { location: `services_${service.title}` })}
+                  className="inline-flex items-center gap-2 text-gold font-medium mt-auto group/link"
+                >
+                  Falar no WhatsApp
+                  <ArrowRight
+                    size={16}
+                    className="group-hover/link:translate-x-1 transition-transform"
+                  />
+                </a>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

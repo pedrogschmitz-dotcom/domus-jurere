@@ -46,9 +46,10 @@ export default function SuitesAmbientes() {
               style={{ scrollSnapAlign: "start" }}
             >
               <div className="aspect-[3/4] w-full overflow-hidden">
-                <img
+                <OptimizedImage
                   src={SUITE_SRCS[idx]}
                   alt={suite.name}
+                  showSkeleton={false}
                   className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
               </div>

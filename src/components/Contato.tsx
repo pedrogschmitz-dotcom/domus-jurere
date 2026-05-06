@@ -7,6 +7,7 @@ import {
   initialContactFormState,
   validateContactForm,
 } from "@/lib/contactFormValidation";
+import { buildContactWhatsappMessage } from "@/lib/contactWhatsappMessage";
 
 const WHATSAPP_BASE = "https://wa.me/5548984680088";
 
@@ -28,14 +29,15 @@ export default function Contato() {
 
     setIsSubmitting(true);
 
-    const text = [
-      t.contato.formIntro,
-      `${t.contato.formNome}: ${form.nome}`,
-      `${t.contato.formEmail}: ${form.email}`,
-      `${t.contato.formTelefone}: ${form.telefone}`,
-      `${t.contato.formPeriodo}: ${form.periodo}`,
-      `${t.contato.formMensagem}: ${form.mensagem || t.contato.formMensagemDefault}`,
-    ].join("\n");
+    const text = buildContactWhatsappMessage(form, {
+      formIntro: t.contato.formIntro,
+      formNome: t.contato.formNome,
+      formEmail: t.contato.formEmail,
+      formTelefone: t.contato.formTelefone,
+      formPeriodo: t.contato.formPeriodo,
+      formMensagem: t.contato.formMensagem,
+      formMensagemDefault: t.contato.formMensagemDefault,
+    });
 
     window.open(`${WHATSAPP_BASE}?text=${encodeURIComponent(text)}`, "_blank", "noopener,noreferrer");
 
