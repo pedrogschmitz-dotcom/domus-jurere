@@ -4,9 +4,9 @@ import { useLanguage } from "@/contexts/LanguageContext";
 
 const MEDIA_SRCS = [
   "./videos/clip1-entrada.mp4",
-  "./videos/clip2-sala.mp4",
-  "./videos/clip3-escada.mp4",
-  "./videos/clip4-sala-exterior.mp4",
+  "./videos/clip2-piscina.mp4",
+  "./videos/clip3-cozinha.mp4",
+  "./videos/clip4-sala.mp4",
   "./videos/clip5-garagem.mp4",
 ] as const;
 
