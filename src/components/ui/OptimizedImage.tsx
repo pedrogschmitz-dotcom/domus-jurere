@@ -5,6 +5,7 @@ interface OptimizedImageProps extends React.ImgHTMLAttributes<HTMLImageElement> 
   alt: string;
   showSkeleton?: boolean;
   priority?: boolean;
+  wrapperClassName?: string;
 }
 
 export function OptimizedImage({
@@ -13,6 +14,7 @@ export function OptimizedImage({
   showSkeleton = true,
   className = "",
   priority = false,
+  wrapperClassName = "",
   loading,
   fetchPriority,
   decoding,
@@ -33,7 +35,7 @@ export function OptimizedImage({
   };
 
   return (
-    <div className="relative overflow-hidden bg-[rgba(0,0,0,0.1)]">
+    <div className={`relative overflow-hidden bg-[rgba(0,0,0,0.1)] ${wrapperClassName}`}>
       {isLoading && showSkeleton && (
         <div className={`absolute inset-0 bg-gradient-to-r from-[rgba(212,175,100,0.1)] via-[rgba(212,175,100,0.05)] to-[rgba(212,175,100,0.1)] animate-pulse ${className}`} />
       )}

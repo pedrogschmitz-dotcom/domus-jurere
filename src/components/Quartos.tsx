@@ -182,7 +182,8 @@ export default function Quartos() {
               <OptimizedImage
                 src={photoPath(suiteAtiva.id, activePhoto)}
                 alt={`${suiteAtiva.nome} - foto ${fotoAtiva}`}
-                className="h-full w-full object-cover"
+                wrapperClassName="h-full w-full"
+                className="h-full w-full object-cover object-center"
               />
               <div className="pointer-events-none absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-[rgba(8,8,8,0.82)] to-transparent" />
 
