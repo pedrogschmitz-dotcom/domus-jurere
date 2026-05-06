@@ -31,7 +31,7 @@ interface Suite {
 }
 
 function photoPath(id: string, n: number) {
-  return `./images/quartos/${id}/${n}.jpg`;
+  return `/images/quartos/${id}/${n}.jpg`;
 }
 
 function resolvePhoto(suite: Suite, position: number): number {
@@ -107,6 +107,7 @@ export default function Quartos() {
   const [suiteId, setSuiteId] = useState("zeus");
   const [fotoAtiva, setFotoAtiva] = useState(1);
   const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [thumbMenuOpen, setThumbMenuOpen] = useState(false);
 
   // Mescla dados estruturais com textos traduzidos
   const SUITES: Suite[] = SUITES_STATIC.map((s, i) => ({
@@ -132,7 +133,10 @@ export default function Quartos() {
   const switchSuite = (id: string) => {
     setSuiteId(id);
     setFotoAtiva(1);
+    setThumbMenuOpen(false);
   };
+
+  const activePhoto = resolvePhoto(suiteAtiva, fotoAtiva);
 
   return (
     <section id="quartos" className="bg-[var(--ink)] py-24 md:py-32" ref={revealRef}>
@@ -156,7 +160,7 @@ export default function Quartos() {
                   onClick={() => switchSuite(suite.id)}
                   className={`whitespace-nowrap border px-4 py-2 text-[10px] font-semibold tracking-[0.24em] transition-all duration-300 ${
                     active
-                      ? "border-[var(--gold)] bg-[rgba(212,188,128,0.08)] text-[var(--gold-lt)]"
+                      ? "border-[var(--gold)] bg-[rgba(212,188,128,0.14)] text-[var(--gold)] shadow-[0_0_24px_rgba(212,188,128,0.18)]"
                       : "border-transparent text-[var(--cream-dk)] hover:border-[rgba(212,188,128,0.28)] hover:text-[var(--gold)]"
                   }`}
                 >
@@ -167,13 +171,18 @@ export default function Quartos() {
           </div>
         </div>
 
-        <div className="reveal reveal-delay-2 mt-10 grid gap-10 lg:grid-cols-[1.3fr_0.7fr] lg:items-start">
-          <div>
-            <div className="relative overflow-hidden border border-[rgba(212,188,128,0.2)] bg-[var(--ink-soft)]">
+        <div className="reveal reveal-delay-2 mt-10 grid gap-10 lg:grid-cols-[1.3fr_0.7fr] lg:items-stretch">
+          <div className="h-full">
+            <div
+              className="group relative h-full min-h-[460px] overflow-hidden border border-[rgba(212,188,128,0.2)] bg-[var(--ink-soft)] md:min-h-[560px]"
+              onMouseEnter={() => setThumbMenuOpen(true)}
+              onMouseLeave={() => setThumbMenuOpen(false)}
+              onTouchStart={() => setThumbMenuOpen(true)}
+            >
               <OptimizedImage
-                src={photoPath(suiteAtiva.id, resolvePhoto(suiteAtiva, fotoAtiva))}
+                src={`/images/quartos/${suiteAtiva.id}/${activePhoto}.jpg`}
                 alt={`${suiteAtiva.nome} - foto ${fotoAtiva}`}
-                className="h-[56vh] min-h-[420px] w-full object-cover md:h-[64vh]"
+                className="h-full w-full object-cover"
               />
               <div className="pointer-events-none absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-[rgba(8,8,8,0.82)] to-transparent" />
 
@@ -214,32 +223,62 @@ export default function Quartos() {
               >
                 <ChevronRight size={20} />
               </button>
-            </div>
 
-            <div className="mt-4 grid grid-cols-4 gap-3 sm:grid-cols-6">
-              {Array.from({ length: suiteAtiva.fotos }, (_, i) => i + 1).map((n) => (
-                <button
-                  type="button"
-                  key={n}
-                  onClick={() => setFotoAtiva(n)}
-                  className={`group overflow-hidden border transition-all ${
-                    fotoAtiva === n
-                      ? "border-[var(--gold)]"
-                      : "border-[rgba(212,188,128,0.18)] hover:border-[rgba(212,188,128,0.48)]"
-                  }`}
-                >
-                  <OptimizedImage
-                    src={photoPath(suiteAtiva.id, resolvePhoto(suiteAtiva, n))}
-                    alt={`${suiteAtiva.nome} miniatura ${n}`}
-                    className="h-16 w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    showSkeleton={false}
-                  />
-                </button>
-              ))}
+              <button
+                type="button"
+                onClick={() => setThumbMenuOpen((v) => !v)}
+                className="absolute bottom-5 right-20 border border-[rgba(212,188,128,0.42)] bg-[rgba(10,10,10,0.7)] px-3 py-2 text-[9px] font-semibold tracking-[0.22em] text-[var(--gold)] transition-colors hover:text-[var(--gold-lt)] md:hidden"
+                aria-label="Abrir miniaturas"
+              >
+                FOTOS
+              </button>
+
+              <div
+                className={`absolute inset-x-0 bottom-0 z-[2] border-t border-[rgba(212,188,128,0.22)] bg-[linear-gradient(180deg,rgba(10,10,10,0.15),rgba(10,10,10,0.86))] px-4 pb-4 pt-3 backdrop-blur-sm transition-all duration-300 ${
+                  thumbMenuOpen
+                    ? "translate-y-0 opacity-100"
+                    : "pointer-events-none translate-y-4 opacity-0 md:group-hover:pointer-events-auto md:group-hover:translate-y-0 md:group-hover:opacity-100"
+                }`}
+              >
+                <div className="mb-3 flex items-center justify-between">
+                  <span className="text-[9px] font-semibold tracking-[0.22em] text-[var(--gold)]">GALERIA DA SUITE</span>
+                  <span className="text-[9px] tracking-[0.18em] text-[var(--cream-dk)]">
+                    {fotoAtiva}/{suiteAtiva.fotos}
+                  </span>
+                </div>
+
+                <div className="no-scrollbar flex gap-2 overflow-x-auto">
+                  {Array.from({ length: suiteAtiva.fotos }, (_, i) => i + 1).map((n) => {
+                    const photoNumber = resolvePhoto(suiteAtiva, n);
+                    return (
+                      <button
+                        type="button"
+                        key={n}
+                        onClick={() => {
+                          setFotoAtiva(n);
+                          setThumbMenuOpen(false);
+                        }}
+                        className={`group/shadow shrink-0 overflow-hidden border transition-all ${
+                          fotoAtiva === n
+                            ? "border-[var(--gold)]"
+                            : "border-[rgba(212,188,128,0.2)] hover:border-[rgba(212,188,128,0.48)]"
+                        }`}
+                      >
+                        <OptimizedImage
+                          src={`/images/quartos/${suiteAtiva.id}/${photoNumber}.jpg`}
+                          alt={`${suiteAtiva.nome} miniatura ${n}`}
+                          className="h-16 w-24 object-cover transition-transform duration-500 group-hover/shadow:scale-105"
+                          showSkeleton={false}
+                        />
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
             </div>
           </div>
 
-          <aside className="border border-[rgba(212,188,128,0.2)] bg-[linear-gradient(180deg,rgba(20,20,20,0.75),rgba(10,10,10,0.92))] p-7 md:p-8">
+          <aside className="flex h-full flex-col border border-[rgba(212,188,128,0.2)] bg-[linear-gradient(180deg,rgba(20,20,20,0.75),rgba(10,10,10,0.92))] p-7 md:p-8">
             <p className="label-track">{t.quartos.colecao}</p>
             <h3 className="mt-5 font-display text-3xl font-normal italic text-[var(--cream)] md:text-[44px]">
               {suiteAtiva.nome}
@@ -263,7 +302,7 @@ export default function Quartos() {
               target="_blank"
               rel="noreferrer"
               data-hover
-              className="btn-cta-primary mt-9 inline-block"
+              className="btn-cta-primary mt-auto inline-block"
             >
               {t.quartos.reservar}
             </a>
