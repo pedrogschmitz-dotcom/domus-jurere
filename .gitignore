@@ -24,3 +24,7 @@ dist-ssr
 *.sln
 *.sw?
 node_modules
+
+# Raw camera videos should not be committed (can exceed GitHub 100MB limit)
+public/videos/*.MOV
+public/videos/*.mov
