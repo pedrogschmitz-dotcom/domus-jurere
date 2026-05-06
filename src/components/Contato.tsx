@@ -12,6 +12,8 @@ type FormState = {
   mensagem: string;
 };
 
+type FormErrors = Partial<Record<keyof FormState, string>>;
+
 const initialState: FormState = {
   nome: "",
   email: "",
@@ -20,13 +22,46 @@ const initialState: FormState = {
   mensagem: "",
 };
 
+const validateForm = (form: FormState): FormErrors => {
+  const errors: FormErrors = {};
+
+  if (!form.nome.trim() || form.nome.trim().length < 3) {
+    errors.nome = "Nome deve ter pelo menos 3 caracteres";
+  }
+
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!form.email.trim() || !emailRegex.test(form.email)) {
+    errors.email = "Email inválido";
+  }
+
+  if (!form.telefone.trim() || form.telefone.replace(/\D/g, "").length < 10) {
+    errors.telefone = "Telefone deve ter pelo menos 10 dígitos";
+  }
+
+  if (!form.período.trim() || form.período.trim().length < 3) {
+    errors.período = "Período desejado é obrigatório";
+  }
+
+  return errors;
+};
+
 export default function Contato() {
   const { t } = useLanguage();
   const [form, setForm] = useState<FormState>(initialState);
+  const [errors, setErrors] = useState<FormErrors>({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const revealRef = useScrollReveal<HTMLElement>();
 
   const onSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+
+    const validationErrors = validateForm(form);
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      return;
+    }
+
+    setIsSubmitting(true);
 
     const text = [
       t.contato.formIntro,
@@ -38,7 +73,24 @@ export default function Contato() {
     ].join("\n");
 
     window.open(`${WHATSAPP_BASE}?text=${encodeURIComponent(text)}`, "_blank", "noopener,noreferrer");
+
+    setForm(initialState);
+    setErrors({});
+    setIsSubmitting(false);
   };
+
+  const handleChange = (field: keyof FormState) => (value: string) => {
+    setForm((v) => ({ ...v, [field]: value }));
+    if (errors[field]) {
+      setErrors((prev) => {
+        const newErrors = { ...prev };
+        delete newErrors[field];
+        return newErrors;
+      });
+    }
+  };
+
+  const isFormValid = Object.keys(validateForm(form)).length === 0;
 
   return (
     <section className="bg-[var(--ink)] px-6 py-20 md:px-8 md:py-20" id="contato" ref={revealRef}>
@@ -55,14 +107,90 @@ export default function Contato() {
         </div>
 
         <form onSubmit={onSubmit} className="glass-card space-y-4 p-7 reveal reveal-delay-2">
-          <input required placeholder={t.contato.placeholderNome} value={form.nome} onChange={(e) => setForm((v) => ({ ...v, nome: e.target.value }))} className="form-input reveal reveal-delay-1" />
-          <input required type="email" placeholder={t.contato.placeholderEmail} value={form.email} onChange={(e) => setForm((v) => ({ ...v, email: e.target.value }))} className="form-input reveal reveal-delay-1" />
-          <input required placeholder={t.contato.placeholderTelefone} value={form.telefone} onChange={(e) => setForm((v) => ({ ...v, telefone: e.target.value }))} className="form-input reveal reveal-delay-2" />
-          <input required placeholder={t.contato.placeholderPeriodo} value={form.período} onChange={(e) => setForm((v) => ({ ...v, período: e.target.value }))} className="form-input reveal reveal-delay-2" />
-          <textarea placeholder={t.contato.placeholderMensagem} value={form.mensagem} onChange={(e) => setForm((v) => ({ ...v, mensagem: e.target.value }))} className="form-input min-h-28 resize-y reveal reveal-delay-3" />
+          <div>
+            <label htmlFor="nome" className="text-xs text-[rgba(246,241,232,0.5)] mb-1 block">
+              {t.contato.placeholderNome} <span className="text-red-400">*</span>
+            </label>
+            <input
+              id="nome"
+              type="text"
+              required
+              placeholder={t.contato.placeholderNome}
+              value={form.nome}
+              onChange={(e) => handleChange("nome")(e.target.value)}
+              className={`form-input reveal reveal-delay-1 ${errors.nome ? "border-red-500 bg-red-500/5" : ""}`}
+            />
+            {errors.nome && <p className="text-xs text-red-400 mt-1">{errors.nome}</p>}
+          </div>
 
-          <button type="submit" className="btn-cta-primary w-full justify-center reveal reveal-delay-3" data-hover>
-            {t.contato.ctaSubmit}
+          <div>
+            <label htmlFor="email" className="text-xs text-[rgba(246,241,232,0.5)] mb-1 block">
+              {t.contato.placeholderEmail} <span className="text-red-400">*</span>
+            </label>
+            <input
+              id="email"
+              type="email"
+              required
+              placeholder={t.contato.placeholderEmail}
+              value={form.email}
+              onChange={(e) => handleChange("email")(e.target.value)}
+              className={`form-input reveal reveal-delay-1 ${errors.email ? "border-red-500 bg-red-500/5" : ""}`}
+            />
+            {errors.email && <p className="text-xs text-red-400 mt-1">{errors.email}</p>}
+          </div>
+
+          <div>
+            <label htmlFor="telefone" className="text-xs text-[rgba(246,241,232,0.5)] mb-1 block">
+              {t.contato.placeholderTelefone} <span className="text-red-400">*</span>
+            </label>
+            <input
+              id="telefone"
+              type="tel"
+              required
+              placeholder={t.contato.placeholderTelefone}
+              value={form.telefone}
+              onChange={(e) => handleChange("telefone")(e.target.value)}
+              className={`form-input reveal reveal-delay-2 ${errors.telefone ? "border-red-500 bg-red-500/5" : ""}`}
+            />
+            {errors.telefone && <p className="text-xs text-red-400 mt-1">{errors.telefone}</p>}
+          </div>
+
+          <div>
+            <label htmlFor="período" className="text-xs text-[rgba(246,241,232,0.5)] mb-1 block">
+              {t.contato.placeholderPeriodo} <span className="text-red-400">*</span>
+            </label>
+            <input
+              id="período"
+              type="text"
+              required
+              placeholder={t.contato.placeholderPeriodo}
+              value={form.período}
+              onChange={(e) => handleChange("período")(e.target.value)}
+              className={`form-input reveal reveal-delay-2 ${errors.período ? "border-red-500 bg-red-500/5" : ""}`}
+            />
+            {errors.período && <p className="text-xs text-red-400 mt-1">{errors.período}</p>}
+          </div>
+
+          <div>
+            <label htmlFor="mensagem" className="text-xs text-[rgba(246,241,232,0.5)] mb-1 block">
+              {t.contato.placeholderMensagem}
+            </label>
+            <textarea
+              id="mensagem"
+              placeholder={t.contato.placeholderMensagem}
+              value={form.mensagem}
+              onChange={(e) => handleChange("mensagem")(e.target.value)}
+              className="form-input min-h-28 resize-y reveal reveal-delay-3"
+            />
+          </div>
+
+          <button
+            type="submit"
+            disabled={!isFormValid || isSubmitting}
+            className="btn-cta-primary w-full justify-center reveal reveal-delay-3 disabled:opacity-50 disabled:cursor-not-allowed transition-opacity"
+            data-hover={isFormValid ? true : undefined}
+          >
+            {isSubmitting ? "Enviando..." : t.contato.ctaSubmit}
           </button>
 
           <p className="pt-2 text-xs font-semibold tracking-[0.16em] text-[var(--cream-dk)] reveal reveal-delay-4">

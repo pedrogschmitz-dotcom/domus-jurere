@@ -19,6 +19,8 @@ type VideoSlideProps = {
 
 function VideoSlide({ src, active, startAt = 0, segmentDuration }: VideoSlideProps) {
   const ref = useRef<HTMLVideoElement>(null);
+  const [retryCount, setRetryCount] = useState(0);
+  const MAX_RETRIES = 3;
 
   const seekToStart = () => {
     if (!ref.current) return;
@@ -59,6 +61,17 @@ function VideoSlide({ src, active, startAt = 0, segmentDuration }: VideoSlidePro
     }
   };
 
+  const handleError = () => {
+    if (retryCount < MAX_RETRIES && ref.current) {
+      setRetryCount((prev) => prev + 1);
+      setTimeout(() => {
+        if (ref.current) {
+          ref.current.load();
+        }
+      }, 500 * (retryCount + 1));
+    }
+  };
+
   return (
     <video
       ref={ref}
@@ -67,9 +80,10 @@ function VideoSlide({ src, active, startAt = 0, segmentDuration }: VideoSlidePro
       muted
       playsInline
       loop={!segmentDuration}
-      preload="metadata"
+      preload={active ? "auto" : "metadata"}
       onLoadedMetadata={handleLoadedMetadata}
       onTimeUpdate={handleTimeUpdate}
+      onError={handleError}
     />
   );
 }
