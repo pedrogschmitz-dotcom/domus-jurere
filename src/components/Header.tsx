@@ -37,6 +37,10 @@ export default function Header() {
 
   return (
     <>
+      <a href="#conteudo-principal" className="skip-link">
+        Pular para o conteúdo principal
+      </a>
+
       <header
         className={`fixed inset-x-0 top-0 z-50 border-b transition-all duration-300 ${
           isScrolled

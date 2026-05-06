@@ -25,7 +25,7 @@ export default function App() {
       <div style={{ background: "var(--ink)" }}>
         <CustomCursor />
         <Header />
-        <main>
+        <main id="conteudo-principal" tabIndex={-1}>
           <Hero />
           <Especificacoes />
           <GoldDivider />

@@ -115,12 +115,14 @@ export default function Contato() {
               id="nome"
               type="text"
               required
+              aria-invalid={Boolean(errors.nome)}
+              aria-describedby={errors.nome ? "nome-erro" : undefined}
               placeholder={t.contato.placeholderNome}
               value={form.nome}
               onChange={(e) => handleChange("nome")(e.target.value)}
               className={`form-input reveal reveal-delay-1 ${errors.nome ? "border-red-500 bg-red-500/5" : ""}`}
             />
-            {errors.nome && <p className="text-xs text-red-400 mt-1">{errors.nome}</p>}
+            {errors.nome && <p id="nome-erro" className="text-xs text-red-400 mt-1">{errors.nome}</p>}
           </div>
 
           <div>
@@ -131,12 +133,14 @@ export default function Contato() {
               id="email"
               type="email"
               required
+              aria-invalid={Boolean(errors.email)}
+              aria-describedby={errors.email ? "email-erro" : undefined}
               placeholder={t.contato.placeholderEmail}
               value={form.email}
               onChange={(e) => handleChange("email")(e.target.value)}
               className={`form-input reveal reveal-delay-1 ${errors.email ? "border-red-500 bg-red-500/5" : ""}`}
             />
-            {errors.email && <p className="text-xs text-red-400 mt-1">{errors.email}</p>}
+            {errors.email && <p id="email-erro" className="text-xs text-red-400 mt-1">{errors.email}</p>}
           </div>
 
           <div>
@@ -147,28 +151,32 @@ export default function Contato() {
               id="telefone"
               type="tel"
               required
+              aria-invalid={Boolean(errors.telefone)}
+              aria-describedby={errors.telefone ? "telefone-erro" : undefined}
               placeholder={t.contato.placeholderTelefone}
               value={form.telefone}
               onChange={(e) => handleChange("telefone")(e.target.value)}
               className={`form-input reveal reveal-delay-2 ${errors.telefone ? "border-red-500 bg-red-500/5" : ""}`}
             />
-            {errors.telefone && <p className="text-xs text-red-400 mt-1">{errors.telefone}</p>}
+            {errors.telefone && <p id="telefone-erro" className="text-xs text-red-400 mt-1">{errors.telefone}</p>}
           </div>
 
           <div>
-            <label htmlFor="período" className="text-xs text-[rgba(246,241,232,0.5)] mb-1 block">
+            <label htmlFor="periodo" className="text-xs text-[rgba(246,241,232,0.5)] mb-1 block">
               {t.contato.placeholderPeriodo} <span className="text-red-400">*</span>
             </label>
             <input
-              id="período"
+              id="periodo"
               type="text"
               required
+              aria-invalid={Boolean(errors.período)}
+              aria-describedby={errors.período ? "periodo-erro" : undefined}
               placeholder={t.contato.placeholderPeriodo}
               value={form.período}
               onChange={(e) => handleChange("período")(e.target.value)}
               className={`form-input reveal reveal-delay-2 ${errors.período ? "border-red-500 bg-red-500/5" : ""}`}
             />
-            {errors.período && <p className="text-xs text-red-400 mt-1">{errors.período}</p>}
+            {errors.período && <p id="periodo-erro" className="text-xs text-red-400 mt-1">{errors.período}</p>}
           </div>
 
           <div>

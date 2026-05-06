@@ -34,6 +34,28 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+.skip-link {
+  position: fixed;
+  left: 12px;
+  top: 12px;
+  z-index: 10000;
+  transform: translateY(-160%);
+  padding: 10px 14px;
+  border: 1px solid var(--gold);
+  border-radius: 2px;
+  background: rgba(10, 10, 10, 0.98);
+  color: var(--cream);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  transition: transform 0.2s ease;
+}
+
+.skip-link:focus-visible {
+  transform: translateY(0);
+}
+
 body::before {
   content: "";
   position: fixed;
@@ -165,6 +187,17 @@ body::before {
 .form-input:focus {
   outline: none;
   border-color: rgba(212, 188, 128, 0.6);
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+[role="button"]:focus-visible {
+  outline: 2px solid var(--gold-lt);
+  outline-offset: 3px;
+  border-radius: 2px;
 }
 
 .reveal {
