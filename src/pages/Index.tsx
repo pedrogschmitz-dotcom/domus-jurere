@@ -8,7 +8,7 @@ import Services from "@/components/Services";
 import Procedures from "@/components/Procedures";
 import Principles from "@/components/Principles";
 import CTASection from "@/components/CTASection";
-import Location from "@/components/Location";
+import Localizacao from "@/components/Localizacao";
 import BlogPreview from "@/components/BlogPreview";
 import InstagramFeed from "@/components/InstagramFeed";
 import Testimonials from "@/components/Testimonials";
@@ -53,7 +53,7 @@ const Index = () => {
       <SectionReveal delayMs={140}><Principles /></SectionReveal>
       <OrganicDivider />
       <SectionReveal delayMs={160}><CTASection /></SectionReveal>
-      <SectionReveal delayMs={180}><Location /></SectionReveal>
+      <SectionReveal delayMs={180}><Localizacao /></SectionReveal>
       <SectionReveal delayMs={200}><Testimonials /></SectionReveal>
       <SectionReveal delayMs={220}><BlogPreview /></SectionReveal>
       <SectionReveal delayMs={240}><InstagramFeed /></SectionReveal>

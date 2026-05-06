@@ -1,6 +1,6 @@
 import Header from "@/components/Header";
-import Contact from "@/components/Contact";
-import Location from "@/components/Location";
+import Contato from "@/components/Contato";
+import Localizacao from "@/components/Localizacao";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import SEO from "@/components/SEO";
@@ -15,8 +15,8 @@ const ContatoPage = () => {
       />
       <Header />
       <div className="pt-20">
-        <Contact />
-        <Location />
+        <Contato />
+        <Localizacao />
       </div>
       <Footer />
       <WhatsAppButton />

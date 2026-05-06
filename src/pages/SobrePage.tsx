@@ -2,7 +2,7 @@ import Header from "@/components/Header";
 import HowItWorks from "@/components/HowItWorks";
 import Principles from "@/components/Principles";
 import About from "@/components/About";
-import Location from "@/components/Location";
+import Localizacao from "@/components/Localizacao";
 import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
@@ -21,7 +21,7 @@ const SobrePage = () => {
         <HowItWorks />
         <Principles />
         <About />
-        <Location />
+        <Localizacao />
         <CTASection />
       </div>
       <Footer />

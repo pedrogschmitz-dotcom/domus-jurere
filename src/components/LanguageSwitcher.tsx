@@ -2,10 +2,40 @@ import { useEffect, useRef, useState } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import type { Lang } from "@/lib/translations";
 
-const FLAGS: Record<Lang, { emoji: string; code: string; label: string }> = {
-  pt: { emoji: "🇧🇷", code: "PT", label: "Português" },
-  es: { emoji: "🇪🇸", code: "ES", label: "Español" },
-  en: { emoji: "🇬🇧", code: "EN", label: "English" },
+// SVG flag icons for better cross-platform compatibility
+const FlagIcons: Record<Lang, React.ReactNode> = {
+  pt: (
+    <svg viewBox="0 0 900 600" className="h-5 w-5" aria-hidden="true">
+      <rect width="900" height="600" fill="#002776"/>
+      <rect x="360" width="180" height="600" fill="#FCCB00"/>
+      <circle cx="450" cy="300" r="150" fill="#002776"/>
+      <path d="M370 270 Q450 240 480 300 Q450 360 370 330 Z" fill="#FCCB00"/>
+    </svg>
+  ),
+  es: (
+    <svg viewBox="0 0 900 600" className="h-5 w-5" aria-hidden="true">
+      <rect width="900" height="200" fill="#AA151B"/>
+      <rect y="200" width="900" height="200" fill="#FFC400"/>
+      <rect y="400" width="900" height="200" fill="#AA151B"/>
+    </svg>
+  ),
+  en: (
+    <svg viewBox="0 0 900 600" className="h-5 w-5" aria-hidden="true">
+      <rect width="900" height="600" fill="#012169"/>
+      <path d="M0,0 L900,600 M900,0 L0,600" stroke="#FFF" strokeWidth="120"/>
+      <path d="M0,0 L900,600 M900,0 L0,600" stroke="#C8102E" strokeWidth="60"/>
+      <rect y="250" width="900" height="100" fill="#FFF"/>
+      <rect y="270" width="900" height="60" fill="#C8102E"/>
+      <rect x="350" width="200" height="600" fill="#FFF"/>
+      <rect x="370" width="160" height="600" fill="#C8102E"/>
+    </svg>
+  ),
+};
+
+const FLAGS: Record<Lang, { icon: React.ReactNode; code: string; label: string }> = {
+  pt: { icon: FlagIcons.pt, code: "PT", label: "Português" },
+  es: { icon: FlagIcons.es, code: "ES", label: "Español" },
+  en: { icon: FlagIcons.en, code: "EN", label: "English" },
 };
 
 const LANGS: Lang[] = ["pt", "es", "en"];
@@ -46,14 +76,9 @@ export default function LanguageSwitcher() {
         aria-expanded={open}
         className="flex h-10 w-10 items-center justify-center rounded-full border border-[rgba(212,188,128,0.35)] bg-[rgba(10,10,10,0.55)] transition-all duration-200 hover:border-[var(--gold)] hover:bg-[rgba(212,188,128,0.08)]"
       >
-        <span
-          className="text-base leading-none"
-          role="img"
-          aria-label={current.label}
-          style={{ fontFamily: "Apple Color Emoji, Segoe UI Emoji, sans-serif" }}
-        >
-          {current.emoji}
-        </span>
+        <div className="h-5 w-5 overflow-hidden rounded">
+          {current.icon}
+        </div>
       </button>
 
       {/* Dropdown */}
@@ -72,14 +97,9 @@ export default function LanguageSwitcher() {
                 aria-label={f.label}
                 className="flex items-center gap-2 px-4 py-2 text-left transition-colors hover:bg-[rgba(212,188,128,0.08)]"
               >
-                <span
-                  className="text-base leading-none"
-                  role="img"
-                  aria-label={f.label}
-                  style={{ fontFamily: "Apple Color Emoji, Segoe UI Emoji, sans-serif" }}
-                >
-                  {f.emoji}
-                </span>
+                <div className="h-5 w-5 overflow-hidden rounded">
+                  {f.icon}
+                </div>
                 <span className="text-[10px] font-semibold tracking-[0.22em] text-[var(--cream-dk)]">
                   {f.code}
                 </span>

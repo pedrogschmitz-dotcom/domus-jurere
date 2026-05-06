@@ -10,17 +10,55 @@ const MEDIA_SRCS = [
   "./videos/clip5-garagem.mp4",
 ] as const;
 
-function VideoSlide({ src, active }: { src: string; active: boolean }) {
+type VideoSlideProps = {
+  src: string;
+  active: boolean;
+  startAt?: number;
+  segmentDuration?: number;
+};
+
+function VideoSlide({ src, active, startAt = 0, segmentDuration }: VideoSlideProps) {
   const ref = useRef<HTMLVideoElement>(null);
+
+  const seekToStart = () => {
+    if (!ref.current) return;
+    if (startAt > 0) {
+      ref.current.currentTime = startAt;
+    } else {
+      ref.current.currentTime = 0;
+    }
+  };
+
   useEffect(() => {
     if (!ref.current) return;
     if (active) {
-      ref.current.currentTime = 0;
+      if (ref.current.readyState >= 1) {
+        seekToStart();
+      }
       ref.current.play().catch(() => {});
     } else {
       ref.current.pause();
     }
-  }, [active]);
+  }, [active, startAt]);
+
+  const handleLoadedMetadata = () => {
+    if (!active) return;
+    seekToStart();
+  };
+
+  const handleTimeUpdate = () => {
+    if (!ref.current || !active || !segmentDuration) return;
+    const duration = Number.isFinite(ref.current.duration)
+      ? ref.current.duration
+      : startAt + segmentDuration;
+    const endAt = Math.min(startAt + segmentDuration, duration);
+
+    if (ref.current.currentTime >= endAt) {
+      ref.current.currentTime = startAt;
+      ref.current.play().catch(() => {});
+    }
+  };
+
   return (
     <video
       ref={ref}
@@ -28,8 +66,10 @@ function VideoSlide({ src, active }: { src: string; active: boolean }) {
       className="h-full w-full object-cover"
       muted
       playsInline
-      loop
+      loop={!segmentDuration}
       preload="metadata"
+      onLoadedMetadata={handleLoadedMetadata}
+      onTimeUpdate={handleTimeUpdate}
     />
   );
 }
@@ -135,7 +175,12 @@ export default function Galeria() {
                 }}
               >
                 {item.tag === "VIDEO" ? (
-                  <VideoSlide src={item.src} active={isCurrent} />
+                  <VideoSlide
+                    src={item.src}
+                    active={isCurrent}
+                    startAt={idx === 0 ? 2 : 0}
+                    segmentDuration={idx === 0 ? 10 : undefined}
+                  />
                 ) : (
                   <img src={item.src} alt={item.label} className="h-full w-full object-cover" />
                 )}
