@@ -187,20 +187,17 @@ export default function Quartos() {
               <div className="pointer-events-none absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-[rgba(8,8,8,0.82)] to-transparent" />
 
               {suiteAtiva.destaque && (
-                <span className="absolute left-5 top-5 bg-[var(--gold)] px-3 py-1 text-[9px] font-bold uppercase tracking-[0.24em] text-[var(--ink)]">
+                <span className="absolute right-5 top-5 z-[3] bg-[var(--gold)] px-3 py-1 text-[9px] font-bold uppercase tracking-[0.24em] text-[var(--ink)]">
                   {suiteAtiva.destaque}
                 </span>
               )}
 
-              <div
-                className={`absolute left-5 right-5 flex items-end justify-between gap-4 transition-all duration-300 ${
-                  thumbMenuOpen ? "bottom-24" : "bottom-5"
-                }`}
-              >
-                <div>
-                  <p className="text-[9px] tracking-[0.24em] text-[var(--gold)]">{suiteAtiva.nome.toUpperCase()}</p>
-                  <h3 className="font-display text-3xl italic text-[var(--cream)] md:text-5xl">{suiteAtiva.deus}</h3>
-                </div>
+              <div className="absolute left-5 top-5 z-[3]">
+                <p className="text-[9px] tracking-[0.24em] text-[var(--gold)]">{suiteAtiva.nome.toUpperCase()}</p>
+                <h3 className="font-display text-3xl italic text-[var(--cream)] md:text-5xl">{suiteAtiva.deus}</h3>
+              </div>
+
+              <div className="absolute bottom-5 right-5 z-[3]">
                 <button
                   type="button"
                   onClick={() => setLightboxOpen(true)}

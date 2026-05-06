@@ -14,6 +14,7 @@
     "test": "vitest",
     "test:run": "vitest run",
     "images:modern": "node scripts/generate-modern-images.mjs",
+    "images:rooms:standardize": "node scripts/standardize-room-images.mjs",
     "videos:optimize": "node scripts/optimize-videos-ffmpeg.mjs",
     "quality": "npm run lint:strict && npm run typecheck && npm run test:run && vite build"
   },
