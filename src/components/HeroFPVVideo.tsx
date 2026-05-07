@@ -7,7 +7,7 @@ export function HeroFPVVideo() {
   useEffect(() => {
     setVideoReady(true);
     // Auto-start on mount if autoplay is supported
-    const video = document.querySelector('video[data-hero-fpv]');
+    const video = document.querySelector('video[data-hero-fpv]') as HTMLVideoElement | null;
     if (video && video.play) {
       video.play().catch(() => {
         // Autoplay likely blocked by browser
