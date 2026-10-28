@@ -148,10 +148,11 @@ section{position:relative}
 .carta .big{font-family:"Cormorant Garamond";font-weight:500;font-size:clamp(30px,4.1vw,56px);line-height:1.2;color:var(--creme);max-width:1080px}
 .carta .big .rw{opacity:.16}
 .carta .big b{font-weight:600;color:var(--gold);font-style:italic}
-.carta .pics{display:grid;grid-template-columns:.8fr 1.2fr;gap:24px;margin-top:70px;align-items:end}
-.carta .pics div{overflow:hidden;border-radius:20px}
-.carta .pics img{width:100%;height:clamp(300px,44vw,620px);object-fit:cover;transform:scale(1.15)}
-.carta .pics div:last-child img{height:clamp(220px,30vw,420px)}
+.carta .pics{display:grid;grid-template-columns:1.35fr .65fr;gap:24px;margin-top:70px;align-items:end}
+.carta .pics div{overflow:hidden;border-radius:20px;position:relative}
+.carta .pics img{width:100%;height:clamp(280px,42vw,600px);object-fit:cover;transform:scale(1.15)}
+.carta .pics div:last-child img{height:clamp(240px,34vw,480px)}
+.carta .pics .cap{position:absolute;left:18px;bottom:16px;z-index:2;font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--creme);background:rgba(0,0,0,.5);border:1px solid var(--line);padding:8px 12px;border-radius:999px}
 @media(max-width:620px){.carta .pics{grid-template-columns:1fr}}
 
 /* NUMEROS */
@@ -438,8 +439,8 @@ footer nav a{color:rgba(246,241,232,.75)}
     <h2 data-split="words" data-i18n="carta_h">No es una casa de playa. <em>Es un estado de ánimo.</em></h2>
     <p class="big" id="read" data-i18n="carta_p">Torre circular, columnas, arcos y una <b>escalera helicoidal</b>. Doble altura, arañas de cristal y un salón con chimenea. Afuera, palmeras, jardín y una <b>piscina azul cobalto con jacuzzi</b>. La Domus no recibe huéspedes. Recibe personas que saben lo que quieren.</p>
     <div class="pics">
-      <div data-clip><img data-par src="../img/escada.jpg" alt="Escalera helicoidal" data-i18n-alt="alt_escada" loading="lazy"></div>
-      <div data-clip><img data-par src="../img/lareira.jpg" alt="Salón con chimenea" data-i18n-alt="alt_lareira" loading="lazy"></div>
+      <div data-clip><img data-par src="../img/hero.jpg" alt="Fachada de la DOMUS.JURERE en la Av. dos Búzios" data-i18n-alt="alt_fachada" loading="lazy"><span class="cap" data-i18n="cap_fachada">La fachada</span></div>
+      <div data-clip><img data-par src="../img/escada.jpg" alt="Escalera helicoidal" data-i18n-alt="alt_escada" loading="lazy"><span class="cap" data-i18n="cap_escada">Escalera helicoidal</span></div>
     </div>
   </div>
 </section>
@@ -687,7 +688,7 @@ pt: {
   film_k: 'A casa em 22 segundos', film_h: 'Entre <em>sem pressa.</em>', film_p: 'Da piscina ao closet, da sala à varanda. Imagens reais, gravadas na casa.', film_som: 'Toque no vídeo para ativar o som',
   carta_k: 'A mansão', carta_h: 'Não é uma casa de praia. <em>É um estado de espírito.</em>',
   carta_p: 'Torre circular, colunas, arcos e uma <b>escadaria helicoidal</b>. Pé-direito duplo, lustres de cristal e um salão com lareira. Lá fora, palmeiras, jardim e uma <b>piscina azul cobalto com jacuzzi</b>. A Domus não recebe hóspedes. Recebe pessoas que sabem o que querem.',
-  alt_escada: 'Escadaria helicoidal', alt_lareira: 'Salão com lareira',
+  alt_escada: 'Escadaria helicoidal', alt_lareira: 'Salão com lareira', alt_fachada: 'Fachada da DOMUS.JURERE na Av. dos Búzios', cap_fachada: 'A fachada', cap_escada: 'Escadaria helicoidal',
   nums_k: 'Especificações', nums_h: 'Números <em>precisos.</em>', n_quartos: 'Quartos', n_suites: 'Suítes', n_area: 'Área construída', n_praia: 'Da praia', n_vagas: 'Vagas cobertas', n_terreno: 'Área de terreno',
   amb_k: 'Ambientes', amb_h: 'Cada espaço, <em>uma pausa.</em>',
   a1_t: 'Salão com lareira', a1_p: 'Sofás capitonê, quadros e a lareira acesa nas noites de inverno.',
@@ -765,7 +766,7 @@ en: {
   film_k: 'The house in 22 seconds', film_h: 'Come in, <em>slowly.</em>', film_p: 'From the pool to the closet, from the living room to the terrace. Real footage, filmed at the house.', film_som: 'Tap the video to turn on the sound',
   carta_k: 'The mansion', carta_h: 'Not a beach house. <em>A state of mind.</em>',
   carta_p: 'A circular tower, columns, arches and a <b>helical staircase</b>. Double-height ceilings, crystal chandeliers and a drawing room with a fireplace. Outside, palm trees, a garden and a <b>cobalt blue pool with jacuzzi</b>. Domus does not receive guests. It welcomes people who know what they want.',
-  alt_escada: 'Helical staircase', alt_lareira: 'Drawing room with fireplace',
+  alt_escada: 'Helical staircase', alt_lareira: 'Drawing room with fireplace', alt_fachada: 'Front facade of DOMUS.JURERE on Av. dos Búzios', cap_fachada: 'The facade', cap_escada: 'Helical staircase',
   nums_k: 'Specifications', nums_h: 'Precise <em>numbers.</em>', n_quartos: 'Bedrooms', n_suites: 'Suites', n_area: 'Built area', n_praia: 'To the beach', n_vagas: 'Covered parking', n_terreno: 'Land area',
   amb_k: 'Spaces', amb_h: 'Every room, <em>a pause.</em>',
   a1_t: 'Drawing room', a1_p: 'Tufted sofas, paintings and a fireplace for winter nights.',
@@ -843,7 +844,7 @@ es: {
   film_k: 'La casa en 22 segundos', film_h: 'Entre <em>sin prisa.</em>', film_p: 'De la piscina al vestidor, de la sala a la terraza. Imágenes reales, grabadas en la casa.', film_som: 'Toque el video para activar el sonido',
   carta_k: 'La mansión', carta_h: 'No es una casa de playa. <em>Es un estado de ánimo.</em>',
   carta_p: 'Torre circular, columnas, arcos y una <b>escalera helicoidal</b>. Doble altura, arañas de cristal y un salón con chimenea. Afuera, palmeras, jardín y una <b>piscina azul cobalto con jacuzzi</b>. La Domus no recibe huéspedes. Recibe personas que saben lo que quieren.',
-  alt_escada: 'Escalera helicoidal', alt_lareira: 'Salón con chimenea',
+  alt_escada: 'Escalera helicoidal', alt_lareira: 'Salón con chimenea', alt_fachada: 'Fachada de la DOMUS.JURERE en la Av. dos Búzios', cap_fachada: 'La fachada', cap_escada: 'Escalera helicoidal',
   nums_k: 'Especificaciones', nums_h: 'Números <em>precisos.</em>', n_quartos: 'Dormitorios', n_suites: 'Suites', n_area: 'Área construida', n_praia: 'De la playa', n_vagas: 'Cocheras cubiertas', n_terreno: 'Área del terreno',
   amb_k: 'Ambientes', amb_h: 'Cada espacio, <em>una pausa.</em>',
   a1_t: 'Salón con chimenea', a1_p: 'Sofás capitoné, cuadros y la chimenea para las noches de invierno.',
