@@ -1,0 +1,29 @@
+{
+  "atualizado": "2026-10-27",
+  "fonte": "Planilha Mestra Schmitz: abas Reservas e Precificacao",
+  "observacao": "Valores por noite, casa inteira, em reais. 'semana' = noites de segunda a quinta; 'fimdesemana' = noites de sexta a domingo; 'noite' = valor fixo. Períodos posteriores na lista têm prioridade. 'reservado' lista as noites ocupadas (data de entrada até a última noite; o dia da saída fica livre).",
+  "fim": "2027-12-31",
+  "padrao": { "nome": "baixa", "semana": 6500, "fimdesemana": 7500, "min": 2 },
+  "periodos": [
+    { "nome": "alta", "de": "2026-12-01", "ate": "2027-03-31", "semana": 11000, "fimdesemana": 15000, "min": 3 },
+    { "nome": "alta", "de": "2027-12-01", "ate": "2028-03-31", "semana": 11000, "fimdesemana": 15000, "min": 3 },
+    { "nome": "feriado", "de": "2026-11-13", "ate": "2026-11-14", "noite": 8000, "min": 2 },
+    { "nome": "feriado", "de": "2026-11-19", "ate": "2026-11-21", "noite": 8000, "min": 2 },
+    { "nome": "reveillon", "de": "2026-12-28", "ate": "2027-01-01", "noite": 15000, "min": 5 },
+    { "nome": "carnaval", "de": "2027-02-04", "ate": "2027-02-10", "noite": 15000, "min": 5 },
+    { "nome": "semana_santa", "de": "2027-03-21", "ate": "2027-03-27", "semana": 11000, "fimdesemana": 15000, "min": 5 },
+    { "nome": "feriado", "de": "2027-04-21", "ate": "2027-04-24", "noite": 8000, "min": 2 },
+    { "nome": "feriado", "de": "2027-04-30", "ate": "2027-05-01", "noite": 8000, "min": 2 },
+    { "nome": "feriado", "de": "2027-05-26", "ate": "2027-05-29", "noite": 8000, "min": 2 },
+    { "nome": "feriado", "de": "2027-09-03", "ate": "2027-09-06", "noite": 8000, "min": 2 },
+    { "nome": "feriado", "de": "2027-10-08", "ate": "2027-10-11", "noite": 8000, "min": 2 },
+    { "nome": "feriado", "de": "2027-10-29", "ate": "2027-11-01", "noite": 8000, "min": 2 },
+    { "nome": "feriado", "de": "2027-11-12", "ate": "2027-11-14", "noite": 8000, "min": 2 },
+    { "nome": "feriado", "de": "2027-11-19", "ate": "2027-11-20", "noite": 8000, "min": 2 },
+    { "nome": "reveillon", "de": "2027-12-28", "ate": "2028-01-01", "noite": 15000, "min": 5 }
+  ],
+  "reservado": [
+    { "de": "2027-01-29", "ate": "2027-01-30" },
+    { "de": "2027-02-04", "ate": "2027-02-10" }
+  ]
+}
