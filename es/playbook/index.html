@@ -6,6 +6,10 @@
 <title>Domus Jurerê · Playbook de la casa</title>
 <meta name="description" content="Presentación de Domus Jurerê: piscina con hidromasaje, quincho integrado, salas y suite principal. Jurerê Internacional, Florianópolis.">
 <link rel="canonical" href="https://domusjurere.com/es/playbook/">
+<link rel="alternate" hreflang="pt-BR" href="https://domusjurere.com/playbook/">
+<link rel="alternate" hreflang="en" href="https://domusjurere.com/en/playbook/">
+<link rel="alternate" hreflang="es" href="https://domusjurere.com/es/playbook/">
+<link rel="alternate" hreflang="x-default" href="https://domusjurere.com/playbook/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://domusjurere.com/es/playbook/">
 <meta property="og:title" content="Domus Jurerê · Playbook de la casa">
@@ -49,6 +53,11 @@ h2 em,h1 em{font-style:italic;color:var(--gold);font-weight:600}
 .pill i{width:8px;height:8px;border-radius:50%;background:var(--gold)}
 .pill.gold{background:var(--gold);color:var(--ink);border-color:var(--gold)}.pill.gold i{background:var(--ink)}
 @media (max-width:980px){.top nav{display:none}}
+.top .right{display:flex;align-items:center;gap:10px}
+.lg{display:flex;gap:2px;padding:3px;border:1px solid var(--line);border-radius:999px}
+.lg a{font:600 10px/1 var(--sans);letter-spacing:.14em;padding:8px 9px;border-radius:999px;text-decoration:none;color:var(--mute)}
+.lg a.on{background:var(--gold);color:var(--ink)}
+@media (max-width:420px){.top .pill.wa{padding:12px 14px;letter-spacing:.18em}.top .pill.wa i{display:none}}
 /* portada */
 .cover{position:relative;min-height:100svh;display:flex;align-items:flex-end;overflow:hidden}
 .cover .bg{position:absolute;inset:0;background:url(../../img/hero.jpg) center 40%/cover;transform:scale(1.08);animation:kb 14s ease-out forwards}
@@ -158,7 +167,10 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
     <nav aria-label="Capítulos">
       <a href="#piscina">Piscina</a><a href="#quincho">Quincho</a><a href="#salas">Salas</a><a href="#suite">Suite principal</a><a href="#servicios">Servicios</a>
     </nav>
-    <a class="pill wa" href="https://wa.me/5548984680088" target="_blank" rel="noopener"><i></i>Escríbanos</a>
+    <div class="right">
+      <div class="lg" aria-label="Idioma"><a href="/playbook/" hreflang="pt-BR" lang="pt-BR">PT</a><a href="/en/playbook/" hreflang="en" lang="en">EN</a><a href="/es/playbook/" hreflang="es" lang="es" class="on" aria-current="true">ES</a></div>
+      <a class="pill wa" href="https://wa.me/5548984680088" target="_blank" rel="noopener"><i></i>Escríbanos</a>
+    </div>
   </div>
 </header>
 
