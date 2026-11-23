@@ -128,6 +128,7 @@ T = [
     ('<p class="tag rv">Donde lo extraordinario es lo habitual.</p>', '<p class="tag rv">O lugar onde o extraordinário é o padrão.</p>', '<p class="tag rv">Where the extraordinary is the standard.</p>'),
     ("<i></i>Escríbanos en privado</a>", "<i></i>Chame no privado</a>", "<i></i>Message us privately</a>"),
     ("Fechas, valores y condiciones por mensaje privado", "Datas, valores e condições pelo privado", "Dates, rates and terms by private message"),
+    ("Consulte fechas y condiciones con su agente inmobiliario.", "Consulte datas e condições com o seu corretor.", "Ask your agent for dates and terms."),
     ('aria-label="Galería"', 'aria-label="Galeria"', 'aria-label="Gallery"'),
     ('aria-label="Cerrar"', 'aria-label="Fechar"', 'aria-label="Close"'),
     ('aria-label="Siguiente"', 'aria-label="Próxima"', 'aria-label="Next"'),

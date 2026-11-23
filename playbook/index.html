@@ -2,6 +2,7 @@
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
+<script>try{if(/[?&]p=/.test(location.search))document.documentElement.className+=" partner"}catch(e){}</script>
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Domus Jurerê · Playbook da casa</title>
 <meta name="description" content="Apresentação da Domus Jurerê: piscina com hidromassagem, espaço gourmet integrado, salas e suíte principal. Jurerê Internacional, Florianópolis.">
@@ -23,6 +24,8 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <meta name="theme-color" content="#0A0A0A">
+<link rel="preload" as="image" href="../img/playbook/capa.jpg" media="(min-width:761px)">
+<link rel="preload" as="image" href="../img/playbook/capa-m.jpg" media="(max-width:760px)">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600;1,700&family=Raleway:wght@500;600;700&display=swap" rel="stylesheet">
@@ -60,8 +63,9 @@ h2 em,h1 em{font-style:italic;color:var(--gold);font-weight:600}
 @media (max-width:420px){.top .pill.wa{padding:12px 14px;letter-spacing:.18em}.top .pill.wa i{display:none}}
 /* portada */
 .cover{position:relative;min-height:100svh;display:flex;align-items:flex-end;overflow:hidden}
-.cover .bg{position:absolute;inset:0;background:url(../img/hero.jpg) center 40%/cover;transform:scale(1.08);animation:kb 14s ease-out forwards}
+.cover .bg{position:absolute;inset:0;background:url(../img/playbook/capa.jpg) center 40%/cover;transform:scale(1.08);animation:kb 14s ease-out forwards}
 @keyframes kb{to{transform:scale(1)}}
+@media (max-width:760px){.cover .bg{background-image:url(../img/playbook/capa-m.jpg)}}
 .cover:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(4,4,4,.55) 0%,rgba(4,4,4,.05) 30%,rgba(4,4,4,.35) 60%,rgba(4,4,4,.92) 100%)}
 .cover .wrap{position:relative;z-index:2;width:100%;padding-bottom:clamp(48px,9vh,96px)}
 .cover h1{font-size:clamp(64px,13vw,190px);letter-spacing:.06em;margin-top:22px}
@@ -144,6 +148,11 @@ h2 em,h1 em{font-style:italic;color:var(--gold);font-weight:600}
 .end small{display:block;margin-top:30px;font:600 11px/1.6 var(--sans);letter-spacing:.22em;text-transform:uppercase;color:var(--mute)}
 footer{padding:30px 0 calc(30px + env(safe-area-inset-bottom,0px));border-top:1px solid var(--line);font-size:13px;color:var(--mute)}
 footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+/* modo parceiro: sem contatos do proprietário */
+.partner-only{display:none}
+html.partner .partner-only{display:block}
+html.partner .wa,html.partner .end .row,html.partner .no-partner,html.partner footer a{display:none!important}
+html.partner .top a[aria-label]{pointer-events:none}
 /* revelar */
 .rv{opacity:0;transform:translateY(26px);transition:opacity 1s ease,transform 1s cubic-bezier(.2,.7,.2,1)}
 .rv.in{opacity:1;transform:none}
@@ -163,7 +172,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 
 <header class="top" id="top">
   <div class="wrap">
-    <a href="/" aria-label="Domus Jurerê"><img src="../img/logo-texto.png" alt="DOMUS"></a>
+    <a href="/" aria-label="Domus Jurerê"><img decoding="async" src="../img/logo-texto.png" alt="DOMUS"></a>
     <nav aria-label="Capítulos">
       <a href="#piscina">Piscina</a><a href="#quincho">Gourmet</a><a href="#salas">Salas</a><a href="#suite">Suíte principal</a><a href="#servicios">Serviços</a>
     </nav>
@@ -211,13 +220,13 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
       <div class="n" aria-hidden="true">01</div>
     </div>
   </div>
-  <div class="full clip"><img src="../img/playbook/casa-aerea.jpg" alt="Vista aérea da casa e da piscina" loading="lazy"><span class="cap">Vista aérea</span></div>
+  <div class="full clip"><img decoding="async" src="../img/playbook/casa-aerea.jpg" srcset="../img/playbook/casa-aerea-900.jpg 900w, ../img/playbook/casa-aerea.jpg 1600w" sizes="(max-width:760px) 100vw, 60vw" alt="Vista aérea da casa e da piscina" loading="lazy"><span class="cap">Vista aérea</span></div>
   <div class="wrap">
     <div class="mosaic">
-      <figure class="s7 h2x rv"><img src="../img/playbook/piscina.jpg" alt="Piscina com hidromassagem" loading="lazy"><figcaption>Hidromassagem</figcaption></figure>
-      <figure class="s5 h2x half rv"><img src="../img/piscina-mesa.jpg" alt="Mesa ao lado da piscina" loading="lazy"><figcaption>Mesa ao ar livre</figcaption></figure>
-      <figure class="s5 h1x half rv"><img src="../img/playbook/piscina-aerea.jpg" alt="Piscina vista do drone" loading="lazy"><figcaption>Do alto</figcaption></figure>
-      <figure class="s7 h1x rv"><img src="../img/playbook/piscina-mesa2.jpg" alt="Solário e espreguiçadeiras" loading="lazy"><figcaption>Solário</figcaption></figure>
+      <figure class="s7 h2x rv"><img decoding="async" src="../img/playbook/piscina.jpg" srcset="../img/playbook/piscina-900.jpg 900w, ../img/playbook/piscina.jpg 1600w" sizes="(max-width:760px) 100vw, 60vw" alt="Piscina com hidromassagem" loading="lazy"><figcaption>Hidromassagem</figcaption></figure>
+      <figure class="s5 h2x half rv"><img decoding="async" src="../img/piscina-mesa.jpg" alt="Mesa ao lado da piscina" loading="lazy"><figcaption>Mesa ao ar livre</figcaption></figure>
+      <figure class="s5 h1x half rv"><img decoding="async" src="../img/playbook/piscina-aerea.jpg" srcset="../img/playbook/piscina-aerea-900.jpg 900w, ../img/playbook/piscina-aerea.jpg 1600w" sizes="(max-width:760px) 100vw, 60vw" alt="Piscina vista do drone" loading="lazy"><figcaption>Do alto</figcaption></figure>
+      <figure class="s7 h1x rv"><img decoding="async" src="../img/playbook/piscina-mesa2.jpg" srcset="../img/playbook/piscina-mesa2-900.jpg 900w, ../img/playbook/piscina-mesa2.jpg 1600w" sizes="(max-width:760px) 100vw, 60vw" alt="Solário e espreguiçadeiras" loading="lazy"><figcaption>Solário</figcaption></figure>
     </div>
   </div>
 </section>
@@ -232,18 +241,18 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
     </div>
     <div class="qv">
       <div class="vid rv">
-        <video id="qvid" src="../video/quincho-pt.mp4" poster="../video/quincho-pt-poster.jpg" playsinline muted loop preload="metadata"></video>
+        <video id="qvid" src="../video/quincho-pt.mp4" poster="../video/quincho-pt-poster.jpg" playsinline muted loop preload="none"></video>
         <button class="pill gold play" id="qplay" type="button"><i></i>Ver com som</button>
       </div>
       <div class="stack">
-        <figure class="fig rv"><img src="../img/playbook/churrasqueira.jpg" alt="Churrasqueira e cozinha do espaço gourmet" loading="lazy"><figcaption>Churrasqueira</figcaption></figure>
-        <figure class="fig rv"><img src="../img/playbook/quincho-cocina.jpg" alt="Cozinha com vista para o jardim" loading="lazy"><figcaption>Cozinha com vista para o jardim</figcaption></figure>
+        <figure class="fig rv"><img decoding="async" src="../img/playbook/churrasqueira.jpg" srcset="../img/playbook/churrasqueira-900.jpg 900w, ../img/playbook/churrasqueira.jpg 1600w" sizes="(max-width:760px) 100vw, 60vw" alt="Churrasqueira e cozinha do espaço gourmet" loading="lazy"><figcaption>Churrasqueira</figcaption></figure>
+        <figure class="fig rv"><img decoding="async" src="../img/playbook/quincho-cocina.jpg" srcset="../img/playbook/quincho-cocina-900.jpg 900w, ../img/playbook/quincho-cocina.jpg 1600w" sizes="(max-width:760px) 100vw, 60vw" alt="Cozinha com vista para o jardim" loading="lazy"><figcaption>Cozinha com vista para o jardim</figcaption></figure>
       </div>
     </div>
     <div class="mosaic">
-      <figure class="s4 h1x half rv"><img src="../img/playbook/quincho-puerta.jpg" alt="Portas de vidro entre o jardim e o espaço gourmet" loading="lazy"><figcaption>Portas de vidro</figcaption></figure>
-      <figure class="s4 h1x half rv"><img src="../img/playbook/quincho-bar.jpg" alt="Bancada de granito" loading="lazy"><figcaption>Bancada de granito</figcaption></figure>
-      <figure class="s4 h1x rv"><img src="../img/gourmet.jpg" alt="Área gourmet" loading="lazy"><figcaption>Área gourmet</figcaption></figure>
+      <figure class="s4 h1x half rv"><img decoding="async" src="../img/playbook/quincho-puerta.jpg" srcset="../img/playbook/quincho-puerta-900.jpg 900w, ../img/playbook/quincho-puerta.jpg 1600w" sizes="(max-width:760px) 100vw, 60vw" alt="Portas de vidro entre o jardim e o espaço gourmet" loading="lazy"><figcaption>Portas de vidro</figcaption></figure>
+      <figure class="s4 h1x half rv"><img decoding="async" src="../img/playbook/quincho-bar.jpg" srcset="../img/playbook/quincho-bar-900.jpg 900w, ../img/playbook/quincho-bar.jpg 1600w" sizes="(max-width:760px) 100vw, 60vw" alt="Bancada de granito" loading="lazy"><figcaption>Bancada de granito</figcaption></figure>
+      <figure class="s4 h1x rv"><img decoding="async" src="../img/gourmet.jpg" alt="Área gourmet" loading="lazy"><figcaption>Área gourmet</figcaption></figure>
     </div>
     <div class="notes">
       <div class="rv"><b>Churrasqueira</b><p>Churrasqueira a carvão ao lado da bancada de granito.</p></div>
@@ -262,14 +271,14 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
       <div class="n" aria-hidden="true">03</div>
     </div>
   </div>
-  <div class="full clip"><img src="../img/lareira.jpg" alt="Sala com lareira" loading="lazy"><span class="cap">Sala com lareira</span></div>
+  <div class="full clip"><img decoding="async" src="../img/lareira.jpg" alt="Sala com lareira" loading="lazy"><span class="cap">Sala com lareira</span></div>
   <div class="wrap">
     <div class="mosaic">
-      <figure class="s6 h2x rv"><img src="../img/playbook/comedor.jpg" alt="Sala de jantar com lustre de cristal" loading="lazy"><figcaption>Sala de jantar</figcaption></figure>
-      <figure class="s6 h2x rv"><img src="../img/playbook/estar.jpg" alt="Sala de estar" loading="lazy"><figcaption>Sala de estar</figcaption></figure>
-      <figure class="s4 h1x half rv"><img src="../img/escada.jpg" alt="Escada helicoidal" loading="lazy"><figcaption>Escada helicoidal</figcaption></figure>
-      <figure class="s4 h1x half rv"><img src="../img/pedireito.jpg" alt="Pé-direito duplo" loading="lazy"><figcaption>Pé-direito duplo</figcaption></figure>
-      <figure class="s4 h1x rv"><img src="../img/tv.jpg" alt="Sala de TV" loading="lazy"><figcaption>Sala de TV</figcaption></figure>
+      <figure class="s6 h2x rv"><img decoding="async" src="../img/playbook/comedor.jpg" srcset="../img/playbook/comedor-900.jpg 900w, ../img/playbook/comedor.jpg 1600w" sizes="(max-width:760px) 100vw, 60vw" alt="Sala de jantar com lustre de cristal" loading="lazy"><figcaption>Sala de jantar</figcaption></figure>
+      <figure class="s6 h2x rv"><img decoding="async" src="../img/playbook/estar.jpg" srcset="../img/playbook/estar-900.jpg 900w, ../img/playbook/estar.jpg 1600w" sizes="(max-width:760px) 100vw, 60vw" alt="Sala de estar" loading="lazy"><figcaption>Sala de estar</figcaption></figure>
+      <figure class="s4 h1x half rv"><img decoding="async" src="../img/escada.jpg" alt="Escada helicoidal" loading="lazy"><figcaption>Escada helicoidal</figcaption></figure>
+      <figure class="s4 h1x half rv"><img decoding="async" src="../img/pedireito.jpg" alt="Pé-direito duplo" loading="lazy"><figcaption>Pé-direito duplo</figcaption></figure>
+      <figure class="s4 h1x rv"><img decoding="async" src="../img/tv.jpg" alt="Sala de TV" loading="lazy"><figcaption>Sala de TV</figcaption></figure>
     </div>
   </div>
 </section>
@@ -283,12 +292,12 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
       <div class="n" aria-hidden="true">04</div>
     </div>
   </div>
-  <div class="full clip"><img src="../img/suites/zeus-3.jpg" alt="Suíte principal Zeus" loading="lazy"><span class="cap">Suíte Zeus</span></div>
+  <div class="full clip"><img decoding="async" src="../img/suites/zeus-3.jpg" alt="Suíte principal Zeus" loading="lazy"><span class="cap">Suíte Zeus</span></div>
   <div class="wrap">
     <div class="mosaic">
-      <figure class="s4 h1x half rv"><img src="../img/suites/zeus-1.jpg" alt="Suíte Zeus com lustre de cristal" loading="lazy"><figcaption>Lustre de cristal</figcaption></figure>
-      <figure class="s4 h1x half rv"><img src="../img/suites/zeus-2.jpg" alt="Cama king da suíte Zeus" loading="lazy"><figcaption>Quarto</figcaption></figure>
-      <figure class="s4 h1x rv"><img src="../img/suites/zeus-4.jpg" alt="Banheira de hidromassagem" loading="lazy"><figcaption>Banheira de hidromassagem</figcaption></figure>
+      <figure class="s4 h1x half rv"><img decoding="async" src="../img/suites/zeus-1.jpg" alt="Suíte Zeus com lustre de cristal" loading="lazy"><figcaption>Lustre de cristal</figcaption></figure>
+      <figure class="s4 h1x half rv"><img decoding="async" src="../img/suites/zeus-2.jpg" alt="Cama king da suíte Zeus" loading="lazy"><figcaption>Quarto</figcaption></figure>
+      <figure class="s4 h1x rv"><img decoding="async" src="../img/suites/zeus-4.jpg" alt="Banheira de hidromassagem" loading="lazy"><figcaption>Banheira de hidromassagem</figcaption></figure>
     </div>
     <p class="eyebrow rv" style="margin-top:80px">As outras sete suítes</p>
     <div class="suites" id="suites"></div>
@@ -314,7 +323,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
     <p class="eyebrow rv">06 · Localização · Jurerê Internacional</p>
     <h2 class="rv">A 300 m <em>da praia.</em></h2>
     <div class="loc">
-      <figure class="fig rv" style="aspect-ratio:4/3"><img src="../img/playbook/vista.jpg" alt="Jurerê Internacional e o mar" loading="lazy"></figure>
+      <figure class="fig rv" style="aspect-ratio:4/3"><img decoding="async" src="../img/playbook/vista.jpg" srcset="../img/playbook/vista-900.jpg 900w, ../img/playbook/vista.jpg 1600w" sizes="(max-width:760px) 100vw, 60vw" alt="Jurerê Internacional e o mar" loading="lazy"></figure>
       <ul class="rv">
         <li><span>Praia de Jurerê</span><b>300 m</b></li>
         <li><span>Aeroporto de Florianópolis</span><b>40 min</b></li>
@@ -335,7 +344,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
       <a class="pill gold wa" href="https://wa.me/5548984680088" target="_blank" rel="noopener"><i></i>Chame no privado</a>
       <a class="pill" href="https://instagram.com/domus.jurere" target="_blank" rel="noopener"><i></i>@domus.jurere</a>
     </div>
-    <small class="rv">Datas, valores e condições pelo privado</small>
+    <small class="rv no-partner">Datas, valores e condições pelo privado</small>
+    <small class="rv partner-only">Consulte datas e condições com o seu corretor.</small>
   </div>
 </section>
 
@@ -360,7 +370,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
   var box=document.getElementById('suites');
   S.forEach(function(s){
     var f=document.createElement('figure'); f.className='fig rv';
-    f.innerHTML='<img src="../img/suites/'+s[0]+'-'+s[2]+'.jpg" alt="Suite '+s[1]+'" loading="lazy"><figcaption><b>'+s[1]+'</b><span>'+s[3]+'</span></figcaption>';
+    f.innerHTML='<img decoding="async" src="../img/suites/'+s[0]+'-'+s[2]+'.jpg" alt="Suite '+s[1]+'" loading="lazy"><figcaption><b>'+s[1]+'</b><span>'+s[3]+'</span></figcaption>';
     box.appendChild(f);
   });
 
@@ -392,6 +402,12 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
   addEventListener('keydown',function(e){if(lb.hidden)return; if(e.key==='Escape')close(); if(e.key==='ArrowLeft')show(cur-1); if(e.key==='ArrowRight')show(cur+1);});
   var x0=null; lb.addEventListener('touchstart',function(e){x0=e.touches[0].clientX},{passive:true});
   lb.addEventListener('touchend',function(e){if(x0===null)return; var d=e.changedTouches[0].clientX-x0; if(Math.abs(d)>50)show(cur+(d<0?1:-1)); x0=null});
+
+  // modo parceiro: mantém o ?p= nos idiomas e corta o vídeo antes da cartela com contato
+  if(document.documentElement.classList.contains('partner')){
+    document.querySelectorAll('.lg a').forEach(function(a){a.href=a.getAttribute('href')+location.search});
+    v.addEventListener('timeupdate',function(){if(v.currentTime>15.8){v.currentTime=0}});
+  }
 
   // mensagem pronta do WhatsApp
   var msg=encodeURIComponent('Olá, vi o playbook da Domus Jurerê e gostaria de consultar disponibilidade e valores para a temporada 2026/27.');

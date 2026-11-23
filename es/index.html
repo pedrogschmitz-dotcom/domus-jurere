@@ -990,7 +990,7 @@ document.getElementById('faqList').innerHTML = L.faq.map(([q, a]) => `<details d
   bt.addEventListener('click', () => set(mn.hidden));
   mn.querySelectorAll('a').forEach(a => a.addEventListener('click', () => set(false), true));
   document.addEventListener('keydown', e => { if (e.key === 'Escape' && !mn.hidden) set(false); });
-  const links = [...document.querySelectorAll('#menu a')];
+  const links = [...document.querySelectorAll('#menu a[href^="#"]')];
   const secs = links.map(a => document.querySelector(a.getAttribute('href')));
   const mark = () => {
     const y = window.innerHeight * .4; let cur = -1;
