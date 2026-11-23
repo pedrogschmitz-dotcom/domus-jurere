@@ -149,8 +149,9 @@ h2 em,h1 em{font-style:italic;color:var(--gold);font-weight:600}
 footer{padding:30px 0 calc(30px + env(safe-area-inset-bottom,0px));border-top:1px solid var(--line);font-size:13px;color:var(--mute)}
 footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 /* modo parceiro: sem contatos do proprietário */
-.partner-only{display:none}
-html.partner .partner-only{display:block}
+.partner-only{display:none!important}
+html.partner .partner-only{display:block!important}
+html.partner .pill.partner-only{display:inline-flex!important}
 html.partner .wa,html.partner .end .row,html.partner .no-partner,html.partner footer a{display:none!important}
 html.partner .top a[aria-label]{pointer-events:none}
 /* revelar */
@@ -343,9 +344,11 @@ html.partner .top a[aria-label]{pointer-events:none}
     <div class="row rv">
       <a class="pill gold wa" href="https://wa.me/5548984680088" target="_blank" rel="noopener"><i></i>Chame no privado</a>
       <a class="pill" href="https://instagram.com/domus.jurere" target="_blank" rel="noopener"><i></i>@domus.jurere</a>
+      <a class="pill" href="/pdf/Domus-Jurere-Playbook-PT.pdf" download><i></i>Baixar PDF</a>
     </div>
     <small class="rv no-partner">Datas, valores e condições pelo privado</small>
     <small class="rv partner-only">Consulte datas e condições com o seu corretor.</small>
+    <a class="pill partner-only rv" style="margin-top:22px" href="/pdf/Domus-Jurere-Playbook-PT-sem-contato.pdf" download><i></i>Baixar PDF</a>
   </div>
 </section>
 

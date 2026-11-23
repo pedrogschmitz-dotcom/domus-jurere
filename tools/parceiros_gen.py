@@ -172,7 +172,7 @@ footer{{border-top:1px solid var(--line);padding:30px 0 calc(30px + env(safe-are
 <section id="cliente"><div class="wrap">
   <p class="eyebrow rv">01 · Para enviar ao cliente</p>
   <h2 class="rv">Playbook <em>sem os nossos contatos.</em></h2>
-  <p class="lead rv">A mesma apresentação do site, sem WhatsApp, Instagram ou link para o proprietário. Envie com a sua marca e o seu contato.</p>
+  <p class="lead rv">A mesma apresentação do site, sem WhatsApp, Instagram ou link para o proprietário, em link ou em PDF. Envie com a sua marca e o seu contato.</p>
   <div class="cards">
     <div class="card rv"><b>Português</b><p>Clientes brasileiros</p><div class="url">domusjurere.com/playbook/?p=parceiro</div><div class="row"><a class="pill gold" href="/playbook/?p=parceiro" target="_blank" rel="noopener"><i></i>Abrir</a><button class="pill cp" data-u="https://domusjurere.com/playbook/?p=parceiro" type="button"><i></i>Copiar link</button></div></div>
     <div class="card rv"><b>English</b><p>Clientes internacionais</p><div class="url">domusjurere.com/en/playbook/?p=parceiro</div><div class="row"><a class="pill gold" href="/en/playbook/?p=parceiro" target="_blank" rel="noopener"><i></i>Abrir</a><button class="pill cp" data-u="https://domusjurere.com/en/playbook/?p=parceiro" type="button"><i></i>Copiar link</button></div></div>
@@ -183,6 +183,12 @@ footer{{border-top:1px solid var(--line);padding:30px 0 calc(30px + env(safe-are
     <a class="pill" href="videos/domus-jurere-gourmet-pt.mp4" download><i></i>Vídeo PT</a>
     <a class="pill" href="videos/domus-jurere-gourmet-en.mp4" download><i></i>Vídeo EN</a>
     <a class="pill" href="videos/domus-jurere-gourmet-es.mp4" download><i></i>Vídeo ES</a>
+  </div>
+  <h3 class="rv">Playbook em PDF sem contato · 9 páginas</h3>
+  <div class="row rv" style="display:flex;flex-wrap:wrap;gap:10px">
+    <a class="pill" href="/pdf/Domus-Jurere-Playbook-PT-sem-contato.pdf" download><i></i>PDF PT</a>
+    <a class="pill" href="/pdf/Domus-Jurere-Playbook-EN-sem-contato.pdf" download><i></i>PDF EN</a>
+    <a class="pill" href="/pdf/Domus-Jurere-Playbook-ES-sem-contato.pdf" download><i></i>PDF ES</a>
   </div>
 </div></section>
 

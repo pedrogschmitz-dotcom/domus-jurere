@@ -5,6 +5,7 @@ Toda mudança de layout é feita no espanhol; depois rode este script.
 SRC = "es/playbook/index.html"
 
 COMMON_PT = [
+    ("Domus-Jurere-Playbook-ES", "Domus-Jurere-Playbook-PT"), ("<i></i>Descargar PDF</a>", "<i></i>Baixar PDF</a>"),
     ('<html lang="es">', '<html lang="pt-BR">'),
     ("../../img/", "../img/"), ("../../video/", "../video/"),
     ("video/quincho-es.mp4", "video/quincho-pt.mp4"), ("video/quincho-es-poster.jpg", "video/quincho-pt-poster.jpg"),
@@ -17,6 +18,7 @@ COMMON_PT = [
     ('<a href="/es/">domusjurere.com</a>', '<a href="/">domusjurere.com</a>'),
 ]
 COMMON_EN = [
+    ("Domus-Jurere-Playbook-ES", "Domus-Jurere-Playbook-EN"), ("<i></i>Descargar PDF</a>", "<i></i>Download PDF</a>"),
     ('<html lang="es">', '<html lang="en">'),
     ("video/quincho-es.mp4", "video/quincho-en.mp4"), ("video/quincho-es-poster.jpg", "video/quincho-en-poster.jpg"),
     ('<link rel="canonical" href="https://domusjurere.com/es/playbook/">', '<link rel="canonical" href="https://domusjurere.com/en/playbook/">'),
