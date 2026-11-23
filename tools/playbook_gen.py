@@ -1,4 +1,4 @@
-"""Gera /playbook/ (PT) e /en/playbook/ (EN) a partir de /es/playbook/ (fonte).
+"""Gera /playbook/ (PT), /en/playbook/ (EN) e /he/playbook/ (hebraico, ver playbook_he.py) a partir de /es/playbook/ (fonte).
 Uso (na raiz do repositório): python3 tools/playbook_gen.py
 Toda mudança de layout é feita no espanhol; depois rode este script.
 """
@@ -152,14 +152,23 @@ T = [
 
 def build(lang):
     s = open(SRC, encoding="utf-8").read()
-    for a, b in (COMMON_PT if lang == "pt" else COMMON_EN):
-        assert a in s, (lang, a); s = s.replace(a, b)
-    col = 1 if lang == "pt" else 2
-    for row in T:
-        a, b = row[0], row[col]
-        assert a in s, (lang, a[:70]); s = s.replace(a, b)
-    out = "playbook/index.html" if lang == "pt" else "en/playbook/index.html"
+    if lang == "he":
+        import sys, os; sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+        from playbook_he import COMMON_HE, HE
+        for a, b in COMMON_HE:
+            assert a in s, (lang, a[:60]); s = s.replace(a, b)
+        for row in T:
+            a = row[0]; assert a in s and a in HE, (lang, a[:70]); s = s.replace(a, HE[a])
+        out = "he/playbook/index.html"
+    else:
+        for a, b in (COMMON_PT if lang == "pt" else COMMON_EN):
+            assert a in s, (lang, a); s = s.replace(a, b)
+        col = 1 if lang == "pt" else 2
+        for row in T:
+            a, b = row[0], row[col]
+            assert a in s, (lang, a[:70]); s = s.replace(a, b)
+        out = "playbook/index.html" if lang == "pt" else "en/playbook/index.html"
     import os; os.makedirs(os.path.dirname(out), exist_ok=True)
     open(out, "w", encoding="utf-8").write(s); print("ok", out)
 
-build("pt"); build("en")
+build("pt"); build("en"); build("he")

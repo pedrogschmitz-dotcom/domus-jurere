@@ -109,7 +109,7 @@ h3{{font:600 11px/1 var(--sans);letter-spacing:.26em;text-transform:uppercase;co
 .pill i{{width:7px;height:7px;border-radius:50%;background:var(--gold);flex:none}}
 .pill.gold{{background:var(--gold);color:var(--ink);border-color:var(--gold)}}.pill.gold i{{background:var(--ink)}}
 section{{padding:70px 0;border-top:1px solid var(--line)}}
-.cards{{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:30px}}
+.cards{{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:30px}}
 .card{{border:1px solid var(--line);border-radius:6px;padding:22px;background:var(--ink2);min-width:0}}
 .card b{{display:block;font:700 26px/1.1 var(--serif)}}
 .card p{{color:var(--mute);font-size:14px;margin:6px 0 16px}}
@@ -177,6 +177,7 @@ footer{{border-top:1px solid var(--line);padding:30px 0 calc(30px + env(safe-are
     <div class="card rv"><b>Português</b><p>Clientes brasileiros</p><div class="url">domusjurere.com/playbook/?p=parceiro</div><div class="row"><a class="pill gold" href="/playbook/?p=parceiro" target="_blank" rel="noopener"><i></i>Abrir</a><button class="pill cp" data-u="https://domusjurere.com/playbook/?p=parceiro" type="button"><i></i>Copiar link</button></div></div>
     <div class="card rv"><b>English</b><p>Clientes internacionais</p><div class="url">domusjurere.com/en/playbook/?p=parceiro</div><div class="row"><a class="pill gold" href="/en/playbook/?p=parceiro" target="_blank" rel="noopener"><i></i>Abrir</a><button class="pill cp" data-u="https://domusjurere.com/en/playbook/?p=parceiro" type="button"><i></i>Copiar link</button></div></div>
     <div class="card rv"><b>Español</b><p>Chile, Argentina e Uruguai</p><div class="url">domusjurere.com/es/playbook/?p=parceiro</div><div class="row"><a class="pill gold" href="/es/playbook/?p=parceiro" target="_blank" rel="noopener"><i></i>Abrir</a><button class="pill cp" data-u="https://domusjurere.com/es/playbook/?p=parceiro" type="button"><i></i>Copiar link</button></div></div>
+    <div class="card rv"><b>עברית · Hebraico</b><p>Clientes de Israel</p><div class="url">domusjurere.com/he/playbook/?p=parceiro</div><div class="row"><a class="pill gold" href="/he/playbook/?p=parceiro" target="_blank" rel="noopener"><i></i>Abrir</a><button class="pill cp" data-u="https://domusjurere.com/he/playbook/?p=parceiro" type="button"><i></i>Copiar link</button></div></div>
   </div>
   <h3 class="rv">Vídeos sem contato · 16 s · vertical</h3>
   <div class="row rv" style="display:flex;flex-wrap:wrap;gap:10px">
@@ -189,6 +190,7 @@ footer{{border-top:1px solid var(--line);padding:30px 0 calc(30px + env(safe-are
     <a class="pill" href="/pdf/Domus-Jurere-Playbook-PT-sem-contato.pdf" download><i></i>PDF PT</a>
     <a class="pill" href="/pdf/Domus-Jurere-Playbook-EN-sem-contato.pdf" download><i></i>PDF EN</a>
     <a class="pill" href="/pdf/Domus-Jurere-Playbook-ES-sem-contato.pdf" download><i></i>PDF ES</a>
+    <a class="pill" href="/pdf/Domus-Jurere-Playbook-HE-sem-contato.pdf" download><i></i>PDF עברית</a>
   </div>
 </div></section>
 

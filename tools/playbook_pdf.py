@@ -72,6 +72,37 @@ T = {
    wa="Hola, vi el playbook de Domus Jurerê y quisiera consultar disponibilidad y valores para la temporada 2026/27."),
 }
 
+T["he"] = dict(lang="he", kicker="הפלייבוק של הבית · עונת 2026/27", tag="המקום שבו יוצא הדופן הוא הסטנדרט.",
+   place="Jurerê Internacional · פלוריאנופוליס · ברזיל",
+   casa_k="הבית", casa_h="בית שלם, <em>רק לחבר׳ה שלכם.</em>",
+   casa_p="אדריכלות ניאו-קלאסית ב-Jurerê Internacional, אחת משכונות החוף הכי שוות בפלוריאנופוליס. בלי קיר משותף עם שכנים ובלי שטחים משותפים: כל הבית שלכם, מהרגע שנכנסים.",
+   nums=[("17","אורחים"),("9","חדרי שינה"),("8","סוויטות"),("800 m²","שטח בנוי"),("300 m","מהחוף"),("40 min","משדה התעופה"),("4","חניות מקורות"),("24/7","קונסיירז׳")],
+   pis_k="01 · בריכה", pis_h="בריכה, <em>רק שלכם.</em>", pis_p="בריכה פרטית עם ג׳קוזי מובנה, סולריום עם מיטות שיזוף ושולחן בחוץ. מסביב גינה ודקלים, ואין לאן למהר.",
+   pis_c=["ג׳קוזי","שולחן בחוץ","מלמעלה"],
+   gou_k="02 · פינת המנגל", gou_h="מהגינה <em>ישר למנגל.</em>", gou_p="פינת המנגל נפתחת לגינה ולבריכה דרך דלתות זכוכית. גריל, מטבח מלא עם משטח גרניט ושולחנות לכל החבר׳ה.",
+   gou_c=["גריל","מטבח עם נוף לגינה","משטח גרניט"],
+   sal_k="03 · סלונים", sal_h="לבלות <em>ביחד.</em>", sal_p="סלון עם קמין, פינת אוכל מתחת לנברשת קריסטל, חדר טלוויזיה ומדרגות ספירלה שמחברות בין הקומות.",
+   sal_c=["סלון עם קמין","פינת אוכל","מדרגות ספירלה","חדר טלוויזיה"],
+   zeu_k="04 · סוויטת המאסטר", zeu_h="זאוס, <em>סוויטת המאסטר.</em>", zeu_p="מיטת קינג, נברשת קריסטל, שולחן לארוחת בוקר ואמבטיה עם ג׳קוזי מתחת לחלונות של לבני זכוכית.",
+   zeu_c=["נברשת קריסטל","חדר שינה","אמבטיית ג׳קוזי"],
+   sui_k="שבע הסוויטות הנוספות", sui_h="שמונה סוויטות, <em>לכל אחת שם משלה.</em>",
+   sui=[("Poseidon","עץ, אור טבעי ויציאה למרפסת."),("Artemis","אור טבעי, שולחן לבוקר וגוונים בהירים."),("Apollo","נברשת קריסטל ואמבטיה בגרניט."),("Hera","וילונות זהב ואור של בוקר."),("Dionisio","נברשות קריסטל ואווירה רגועה."),("Aphrodite","גרניט, מראות ותאורה עקיפה."),("Athena","גוונים בהירים, טלוויזיה ואמבטיה בגרניט.")],
+   ser_k="05 · שירותים ומיקום", ser_h="הבית <em>דואג לכם.</em>",
+   ser=[("שף פרטי","ארוחות בוקר, מנגלים וארוחות ערב שמכינים לכם בבית, לפי הזמנה."),("קונסיירז׳ 24/7","הזמנות, ביץ׳ קלאבים, טיולים וכל מה שהחבר׳ה צריכים."),("הסעה","משדה התעופה של פלוריאנופוליס, בערך 40 דקות נסיעה.")],
+   loc=[("חוף Jurerê","300 m"),("שדה התעופה של פלוריאנופוליס","40 min"),("אורחים","עד 17")],
+   end_k="עונת 2026/27", cta="דברו איתנו בפרטי", cta_p="תאריכים, מחירים ותנאים בהודעה פרטית", partner="תאריכים ותנאים דרך הסוכן שלכם.",
+   wa="היי, ראיתי את הפלייבוק של Domus Jurerê ורציתי לבדוק זמינות ומחירים לעונת 2026/27.")
+RTL_CSS = """
+html[dir=rtl] body{font-family:Heebo,Raleway,sans-serif}
+html[dir=rtl] h2,html[dir=rtl] .tag,html[dir=rtl] .ser b{font-family:'Frank Ruhl Libre','Cormorant Garamond',serif}
+html[dir=rtl] .k,html[dir=rtl] .cap,html[dir=rtl] .nums span,html[dir=rtl] .links,html[dir=rtl] .btn,html[dir=rtl] .foot{letter-spacing:.04em}
+html[dir=rtl] .left{text-align:right}
+html[dir=rtl] .cap{left:auto;right:4mm}
+html[dir=rtl] .nums b,html[dir=rtl] .loc b,html[dir=rtl] h1,html[dir=rtl] .sub{direction:ltr}
+html[dir=rtl] .left h1,html[dir=rtl] .left .sub{text-align:right}
+html[dir=rtl] .suites b{left:auto;right:3.5mm}html[dir=rtl] .suites span{left:3mm;right:3.5mm;text-align:right}
+"""
+
 CSS = """
 @page{size:297mm 210mm;margin:0}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -143,7 +174,7 @@ def build(lang, partner):
     # 3 piscina
     P.append(page_photo(L["pis_k"], L["pis_h"], L["pis_p"], "img/playbook/piscina.jpg",
                         ["img/piscina-mesa.jpg", "img/playbook/piscina-aerea.jpg", "img/playbook/piscina-mesa2.jpg"],
-                        [L["pis_c"][0], L["pis_c"][1], L["pis_c"][2], "Solárium" if lang == "es" else ("Solário" if lang == "pt" else "Sun deck")]))
+                        [L["pis_c"][0], L["pis_c"][1], L["pis_c"][2], {"es": "Solárium", "pt": "Solário", "en": "Sun deck", "he": "סולריום"}[lang]]))
     # 4 gourmet
     P.append(page_photo(L["gou_k"], L["gou_h"], L["gou_p"], "img/playbook/churrasqueira.jpg",
                         ["img/playbook/quincho-cocina.jpg", "img/playbook/quincho-bar.jpg", "img/gourmet.jpg"],
@@ -171,22 +202,48 @@ def build(lang, partner):
         cta = f'<p class="links" style="margin-top:10mm">{L["partner"]}</p>'
     else:
         cta = f'''<a class="btn" href="{html.escape(wa)}"><i></i>{L["cta"]}</a>
-          <p class="links"><a href="https://instagram.com/domus.jurere">@domus.jurere</a> · <a href="https://domusjurere.com/{'' if lang == 'pt' else lang + '/'}">domusjurere.com</a><br>{L["cta_p"]}</p>'''
+          <p class="links"><a href="https://instagram.com/domus.jurere">@domus.jurere</a> · <a href="https://domusjurere.com/{'' if lang == 'pt' else ('en/' if lang == 'he' else lang + '/')}">domusjurere.com</a><br>{L["cta_p"]}</p>'''
     P.append(f'''<section class="pg"><div class="bg" style="background-image:url({U("img/playbook/piscina-aerea.jpg")})"></div><div class="bg" style="background:rgba(8,8,8,.74)"></div>
       <div class="center"><p class="k">{L["end_k"]}</p><h1 style="margin-top:6mm">DOMUS</h1><p class="sub">JURERÊ</p><p class="tag">{L["tag"]}</p>{cta}</div></section>''')
-    return f'''<!doctype html><html lang="{L["lang"]}"><head><meta charset="utf-8">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,700;1,600&family=Raleway:wght@500;600&display=swap" rel="stylesheet">
-<style>{CSS}</style></head><body>{"".join(P)}</body></html>'''
+    rtl = lang == "he"
+    return f'''<!doctype html><html lang="{L["lang"]}"{' dir="rtl"' if rtl else ''}><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,700;1,600&family=Raleway:wght@500;600&family=Frank+Ruhl+Libre:wght@500;700&family=Heebo:wght@500;600&display=swap" rel="stylesheet">
+<style>{CSS}{RTL_CSS if rtl else ""}</style></head><body>{"".join(P)}</body></html>'''
 
-names = {"pt": "Domus-Jurere-Playbook-PT", "en": "Domus-Jurere-Playbook-EN", "es": "Domus-Jurere-Playbook-ES"}
+names = {"pt": "Domus-Jurere-Playbook-PT", "en": "Domus-Jurere-Playbook-EN", "es": "Domus-Jurere-Playbook-ES", "he": "Domus-Jurere-Playbook-HE"}
+
+# versão sem marca (white label): identidade visual mantida, sem "Domus", sem logo e sem contato
+WHITE = {
+    "pt": ("Mansão", "JURERÊ INTERNACIONAL", "8 suítes · piscina privativa · 300 m da praia", "Mansão em Jurerê Internacional", "Mansao-Jurere-Internacional-PT"),
+    "en": ("The Mansion", "JURERÊ INTERNACIONAL", "8 suites · private pool · 300 m from the beach", "Mansion in Jurerê Internacional", "Mansion-Jurere-Internacional-EN"),
+    "es": ("La Mansión", "JURERÊ INTERNACIONAL", "8 suites · piscina privada · 300 m de la playa", "Mansión en Jurerê Internacional", "Mansion-Jurere-Internacional-ES"),
+    "he": ("וילת יוקרה", "JURERÊ INTERNACIONAL", "8 סוויטות · בריכה פרטית · 300 מטר מהחוף", "וילת יוקרה ב-Jurerê Internacional", "Villa-Jurere-Internacional-HE"),
+}
+def white(lang, doc):
+    nm, sub, line, title, _ = WHITE[lang]
+    brand = f'<h1 style="margin-top:6mm">DOMUS</h1><p class="sub">JURERÊ</p><p class="tag">{T[lang]["tag"]}</p>'
+    assert doc.count(brand) == 2
+    font = "font-family:'Frank Ruhl Libre',serif;letter-spacing:0;" if lang == "he" else "letter-spacing:.02em;"
+    doc = doc.replace(brand, f'<h1 style="margin-top:6mm;font-size:52pt;{font}direction:inherit">{nm}</h1><p class="sub" style="letter-spacing:.4em;direction:ltr">{sub}</p><p class="tag">{line}</p>')
+    doc = doc.replace("<head><meta charset=\"utf-8\">", f"<head><meta charset=\"utf-8\"><title>{title}</title>", 1)
+    assert "DOMUS" not in doc.upper().replace("DOMUSJURERE", "X") or True
+    return doc
+
+MODE = os.environ.get("PDF_MODE", "normal")  # normal | white
 with sync_playwright() as pw:
     b = pw.chromium.launch(); pg = b.new_page()
-    for lang in ["pt", "en", "es"]:
-        for partner in [False, True]:
+    for lang in (sys.argv[2].split(",") if len(sys.argv) > 2 else ["pt", "en", "es", "he"]):
+        for partner in ([True] if MODE == "white" else [False, True]):
             hf = os.path.join(OUT, f"_tmp_{lang}_{int(partner)}.html")
-            open(hf, "w", encoding="utf-8").write(build(lang, partner))
+            doc = build(lang, partner)
+            if MODE == "white":
+                doc = white(lang, doc)
+                import re
+                vis = re.sub(r"<style.*?</style>|<[^>]+>", " ", doc, flags=re.S).lower()
+                assert "domus" not in vis and "1540" not in vis, vis[max(0, vis.find("domus") - 60):vis.find("domus") + 60]
+            open(hf, "w", encoding="utf-8").write(doc)
             pg.goto("file://" + os.path.abspath(hf), wait_until="networkidle"); pg.wait_for_timeout(600)
-            out = os.path.join(OUT, names[lang] + ("-sem-contato" if partner else "") + ".pdf")
+            out = os.path.join(OUT, (WHITE[lang][4] if MODE == "white" else names[lang] + ("-sem-contato" if partner else "")) + ".pdf")
             pg.pdf(path=out, width="297mm", height="210mm", print_background=True, margin={"top": "0", "bottom": "0", "left": "0", "right": "0"})
             print("ok", out, os.path.getsize(out) // 1024, "KB")
     b.close()

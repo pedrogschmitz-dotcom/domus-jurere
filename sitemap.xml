@@ -23,23 +23,34 @@
   </url>
   <url>
     <loc>https://domusjurere.com/playbook/</loc>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://domusjurere.com/playbook/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://domusjurere.com/en/playbook/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://domusjurere.com/es/playbook/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://domusjurere.com/he/playbook/"/>
   </url>
   <url>
     <loc>https://domusjurere.com/en/playbook/</loc>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://domusjurere.com/playbook/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://domusjurere.com/en/playbook/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://domusjurere.com/es/playbook/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://domusjurere.com/he/playbook/"/>
   </url>
   <url>
     <loc>https://domusjurere.com/es/playbook/</loc>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://domusjurere.com/playbook/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://domusjurere.com/en/playbook/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://domusjurere.com/es/playbook/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://domusjurere.com/he/playbook/"/>
+  </url>
+  <url>
+    <loc>https://domusjurere.com/he/playbook/</loc>
+    <lastmod>2026-11-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://domusjurere.com/playbook/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://domusjurere.com/en/playbook/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://domusjurere.com/es/playbook/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://domusjurere.com/he/playbook/"/>
   </url>
 </urlset>
